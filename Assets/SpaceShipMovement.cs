@@ -82,6 +82,8 @@ public class SpaceShipMovement : MonoBehaviour
             renderer.points.Add(new Line2D.Line2DPoint(hit.collider.transform.position, .1f, Color.red));
             renderer.GetComponent<FadeOutOverTime>().Setup(hit.collider.transform);
             _progressBar.SetValue(_fervor, c_maxFervor);
+            _fervor -= hit.collider.GetComponent<FervorBucket>().GainFervor();
+            _progressBar.SetValue(_fervor, c_maxFervor);
         }
         else if (rightPressed)
         {

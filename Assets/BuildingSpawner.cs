@@ -20,7 +20,7 @@ public class BuildingSpawner : MonoBehaviour
             Collider2D collision = Physics2D.OverlapCircle(spawnPoint, p_enemy.GetComponentInChildren<CircleCollider2D>().radius);
             if(collision == null)
             {
-                Instantiate(p_enemy, transform.position,transform.rotation,null);
+                Instantiate(p_enemy, transform.position, p_enemy.transform.rotation,null);
             }
 
             yield return new WaitForSeconds(10.0f);
