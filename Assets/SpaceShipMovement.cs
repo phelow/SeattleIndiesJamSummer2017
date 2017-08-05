@@ -18,10 +18,21 @@ public class SpaceShipMovement : MonoBehaviour
 
     [SerializeField]
     private GameObject p_harvestGoo;
+
+    private float _fervor = 500;
+
+    private float c_maxFervor = 1000;
+
+    [SerializeField]
+    private ProgressBarPro _progressBar;
+
+    [SerializeField]
+    private LayerMask _ignoreBuildings;
+
     // Use this for initialization
     void Start()
     {
-
+        _progressBar.SetValue(_fervor, c_maxFervor);
     }
 
     // Update is called once per frame
@@ -48,7 +59,7 @@ public class SpaceShipMovement : MonoBehaviour
             return;
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, movement, _conversionRadius);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, movement, _conversionRadius, _ignoreBuildings);
         Debug.DrawLine(transform.position, movement, Color.red);
         if (hit == null || hit.transform == null || hit.transform.GetComponent<Movement>() == null)
         {
@@ -65,14 +76,20 @@ public class SpaceShipMovement : MonoBehaviour
             renderer.points = new List<Line2D.Line2DPoint>();
             renderer.points.Add(new Line2D.Line2DPoint(transform.position, .1f, Color.red));
             renderer.points.Add(new Line2D.Line2DPoint(hit.collider.transform.position, .1f, Color.red));
+            renderer.GetComponent<FadeOutOverTime>().Setup(hit.collider.transform);
+            _progressBar.SetValue(_fervor, c_maxFervor);
         }
         else if (rightPressed)
         {
             //if inside the circle harvest
             renderer = GameObject.Instantiate(p_fervorGoo, hit.collider.transform.position, transform.rotation, null).GetComponent<Line2D.Line2DRenderer>();
             renderer.points = new List<Line2D.Line2DPoint>();
-            renderer.points.Add(new Line2D.Line2DPoint(transform.position, .1f, Color.blue));
             renderer.points.Add(new Line2D.Line2DPoint(hit.collider.transform.position, .1f, Color.blue));
+            renderer.points.Add(new Line2D.Line2DPoint(transform.position, .1f, Color.blue));
+            renderer.GetComponent<FadeOutOverTime>().Setup(hit.collider.transform);
+            _fervor += hit.collider.transform.GetComponent<FervorBucket>().Consume();
+            Destroy(hit.collider.gameObject);
+            _progressBar.SetValue(_fervor, c_maxFervor);
         }
     }
 }
