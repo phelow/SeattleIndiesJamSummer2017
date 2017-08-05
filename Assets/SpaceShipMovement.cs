@@ -47,7 +47,6 @@ public class SpaceShipMovement : MonoBehaviour
     {
         bool leftPressed = Input.GetMouseButton(0);
         bool rightPressed = Input.GetMouseButton(1);
-        //if outside the circle move
 
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float distance = Vector2.Distance(transform.position, worldPos);
@@ -59,11 +58,14 @@ public class SpaceShipMovement : MonoBehaviour
 
         Vector2 movement = (new Vector2(worldPos.x, worldPos.y) - new Vector2(transform.position.x, transform.position.y));
 
-        if ((leftPressed || rightPressed) && _conversionRadius < distance)
+
+        //if outside the circle move
+
+        if (/*(leftPressed || rightPressed) && */_conversionRadius < distance)
         {
             _charging = false;
-            _rigidbody.AddForce(movement.normalized * _movementForce * Time.deltaTime);
-
+            _rigidbody.AddForce(movement.normalized * _movementForce * (distance / 2) * Time.deltaTime);
+             
             return;
         }
 
@@ -86,7 +88,7 @@ public class SpaceShipMovement : MonoBehaviour
 
         FervorBucket bucket = hit.collider.transform.GetComponent<FervorBucket>();
 
-        if (!bucket.IsConverted() || _charging)
+        if (leftPressed && (!bucket.IsConverted() || _charging))
         {
             _charging = true;
             //if inside the circle convert
@@ -106,7 +108,7 @@ public class SpaceShipMovement : MonoBehaviour
             _progressBar.SetValue(_fervor, c_maxFervor);
 
         }
-        else
+        else if (rightPressed && bucket.IsConverted())
         {
             _charging = false;
             //if inside the circle harvest
