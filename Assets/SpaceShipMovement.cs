@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class SpaceShipMovement : MonoBehaviour
 {
-
     [SerializeField]
-    private CircleCollider2D _conversionRadius;
+    private float _conversionRadius;
 
     [SerializeField]
     private Rigidbody2D _rigidbody;
@@ -35,7 +34,7 @@ public class SpaceShipMovement : MonoBehaviour
 
         Vector2 movement = (new Vector2(worldPos.x, worldPos.y) - new Vector2(transform.position.x, transform.position.y));
 
-        if ((leftPressed || rightPressed) && _conversionRadius.radius < Vector2.Distance(transform.position,worldPos))
+        if ((leftPressed || rightPressed) && _conversionRadius < Vector2.Distance(transform.position,worldPos))
         {
             _rigidbody.AddForce(movement.normalized * _movementForce * Time.deltaTime);
 
