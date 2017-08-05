@@ -91,8 +91,15 @@ public class SpaceShipMovement : MonoBehaviour
             renderer.points.Add(new Line2D.Line2DPoint(hit.collider.transform.position, .1f, Color.blue));
             renderer.points.Add(new Line2D.Line2DPoint(transform.position, .1f, Color.blue));
             renderer.GetComponent<FadeOutOverTime>().Setup(transform);
-            _fervor += hit.collider.transform.GetComponent<FervorBucket>().Consume();
-            StartCoroutine(DelayedDestory(GameObject.Instantiate(p_harvestExplosions[Random.Range(0,p_harvestExplosions.Length)], hit.collider.transform.position, hit.collider.transform.rotation, null)));
+
+            FervorBucket bucket = hit.collider.transform.GetComponent<FervorBucket>();
+
+            if (_fervor < bucket.CostToConsume())
+            {
+                return;
+            }
+            _fervor -= bucket.Consume();
+            StartCoroutine(DelayedDestory(GameObject.Instantiate(p_harvestExplosions[Random.Range(0,p_harvestExplosions.Length)], (hit.collider.transform.position + Camera.main.transform.position) /2, hit.collider.transform.rotation, null)));
             Destroy(hit.collider.gameObject);
             _progressBar.SetValue(_fervor, c_maxFervor);
         }
