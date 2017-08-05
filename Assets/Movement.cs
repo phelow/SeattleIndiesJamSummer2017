@@ -8,9 +8,13 @@ public class Movement : MonoBehaviour
     public float moveSpeed;
 
     private Vector3 targetPosition;
+
     [SerializeField]
     private Rigidbody2D rb;
     private Vector2 direction;
+
+    [SerializeField]
+    private LayerMask _buildingLayer;
 
     void Start()
     {
@@ -33,21 +37,15 @@ public class Movement : MonoBehaviour
 
     public Vector3 GetNewDirection()
     {
-        int randomDirection = Random.Range(0, 4);
-        if (randomDirection == 0)
+        float angle = Random.Range(0, 2*Mathf.PI);
+        Vector2 randomDirection = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, randomDirection, 3, _buildingLayer);
+        if (hit.collider != null)
         {
-            return new Vector2(1, 0);
+            randomDirection = Vector2.Reflect(randomDirection, hit.normal);
         }
-        else if (randomDirection == 1)
-        {
-            return new Vector2(0, -1);
-        }
-        else if (randomDirection == 2)
-        {
-            return new Vector2(0, 1);
-        }
-        else {
-            return new Vector2(-1, 0);
-        }
+
+        return randomDirection;
     }
 }

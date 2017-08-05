@@ -162,6 +162,9 @@ MonoBehaviour:
   pathing: {fileID: 0}
   moveSpeed: 100
   rb: {fileID: 50366595817051070}
+  _buildingLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &114421944015869920
 MonoBehaviour:
   m_ObjectHideFlags: 1
