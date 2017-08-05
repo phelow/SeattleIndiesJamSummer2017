@@ -20,6 +20,11 @@ public class FervorBucket : MonoBehaviour {
 		
 	}
 
+    public void Convert()
+    {
+        _fervor = 100.0f;
+    }
+
     public float CostToConsume()
     {
         return _fervor;

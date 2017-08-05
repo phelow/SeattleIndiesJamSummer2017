@@ -4750,19 +4750,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1654584245421814, guid: c0108ef073439464696b64f7a8fdfaf4,
     type: 2}
   m_PrefabInternal: {fileID: 60098484}
---- !u!114 &1957662505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1957662503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41edda764b124644bbc2a7b369149265, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _wobble: 10
-  _rigidBody: {fileID: 1957662507}
 --- !u!54 &1957662507
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4835,7 +4822,7 @@ Prefab:
     - target: {fileID: 114686187718249666, guid: 7c5633de190fe7d4fbf58bdf9ed69b08,
         type: 2}
       propertyPath: _ignoreBuildings.m_Bits
-      value: 4294966271
+      value: 823
       objectReference: {fileID: 0}
     - target: {fileID: 114686187718249666, guid: 7c5633de190fe7d4fbf58bdf9ed69b08,
         type: 2}
