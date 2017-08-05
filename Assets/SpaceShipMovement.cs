@@ -29,9 +29,13 @@ public class SpaceShipMovement : MonoBehaviour
     [SerializeField]
     private LayerMask _ignoreBuildings;
 
+    [SerializeField]
+    private GameObject [] p_harvestExplosions;
+
     // Use this for initialization
     void Start()
     {
+        p_harvestExplosions = Resources.LoadAll<GameObject>("Explosions");
         _progressBar.SetValue(_fervor, c_maxFervor);
     }
 
@@ -86,10 +90,19 @@ public class SpaceShipMovement : MonoBehaviour
             renderer.points = new List<Line2D.Line2DPoint>();
             renderer.points.Add(new Line2D.Line2DPoint(hit.collider.transform.position, .1f, Color.blue));
             renderer.points.Add(new Line2D.Line2DPoint(transform.position, .1f, Color.blue));
-            renderer.GetComponent<FadeOutOverTime>().Setup(hit.collider.transform);
+            renderer.GetComponent<FadeOutOverTime>().Setup(transform);
             _fervor += hit.collider.transform.GetComponent<FervorBucket>().Consume();
+            StartCoroutine(DelayedDestory(GameObject.Instantiate(p_harvestExplosions[Random.Range(0,p_harvestExplosions.Length)], hit.collider.transform.position, hit.collider.transform.rotation, null)));
             Destroy(hit.collider.gameObject);
             _progressBar.SetValue(_fervor, c_maxFervor);
         }
+    }
+
+    private IEnumerator DelayedDestory(GameObject particles)
+    {
+        yield return new WaitForSeconds(1.0f);
+        particles.GetComponent<ParticleSystem>().Stop();
+        yield return new WaitForSeconds(1.0f);
+        Destroy(particles);
     }
 }
