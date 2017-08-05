@@ -23,6 +23,9 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private LayerMask _buildingLayer;
 
+    [SerializeField]
+    private Animator _animator;
+
     private GameObject _attached;
 
     void Start()
@@ -67,6 +70,10 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        _animator.SetFloat("Speed", rb.velocity.magnitude);
+        float angle = 180 + Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+        Quaternion quat = Quaternion.AngleAxis(angle, new Vector3(0,0,1));
+        transform.rotation = quat;
     }
 
     public Vector3 GetNewDirection()
