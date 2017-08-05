@@ -515,7 +515,7 @@ MonoBehaviour:
   _progressBar: {fileID: 114298044665852362}
   _ignoreBuildings:
     serializedVersion: 2
-    m_Bits: 4294966271
+    m_Bits: 823
   p_harvestExplosions: []
 --- !u!114 &114846332066415118
 MonoBehaviour:
