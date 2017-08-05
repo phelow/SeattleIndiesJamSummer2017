@@ -78,7 +78,7 @@ MonoBehaviour:
   _line: {fileID: 114041975944174920}
   _ps: {fileID: 19800000}
   _sortParticleOnLife: 1
-  _sortParticleOnDistance: 1
+  _sortParticleOnDistance: 0
   _freezeZeroParticle: 1
   startColor: {r: 0.39607844, g: 0.56078434, b: 0.58431375, a: 1}
   endColor: {r: 0.77254903, g: 0.78039217, b: 0.83137256, a: 0.7647059}
