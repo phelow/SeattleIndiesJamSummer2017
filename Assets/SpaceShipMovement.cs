@@ -82,13 +82,14 @@ public class SpaceShipMovement : MonoBehaviour
             renderer.points.Add(new Line2D.Line2DPoint(hit.collider.transform.position, .1f, Color.red));
             renderer.GetComponent<FadeOutOverTime>().Setup(hit.collider.transform);
             _progressBar.SetValue(_fervor, c_maxFervor);
+            if (_fervor < 10.0f)
+            {
+                _progressBar.SetValue(0.0f, c_maxFervor);
+                return;
+            }
             _fervor -= hit.collider.GetComponent<FervorBucket>().GainFervor();
             _progressBar.SetValue(_fervor, c_maxFervor);
 
-            if(_fervor < 10.0f)
-            {
-                _progressBar.SetValue(0.0f, c_maxFervor);
-            }
         }
         else if (rightPressed)
         {
@@ -106,6 +107,7 @@ public class SpaceShipMovement : MonoBehaviour
                 _progressBar.SetValue(0.0f, c_maxFervor);
                 return;
             }
+
             _fervor -= bucket.Consume();
             StartCoroutine(DelayedDestory(GameObject.Instantiate(p_harvestExplosions[Random.Range(0,p_harvestExplosions.Length)], (hit.collider.transform.position + Camera.main.transform.position) /2, hit.collider.transform.rotation, null)));
             Destroy(hit.collider.gameObject);
