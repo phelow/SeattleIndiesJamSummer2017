@@ -16,6 +16,6 @@ public class FervorBucket : MonoBehaviour {
 
     public float Consume()
     {
-        return _fervor;
+        return _fervor - 50.0f;
     }
 }
