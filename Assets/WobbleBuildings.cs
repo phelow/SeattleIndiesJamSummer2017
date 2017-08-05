@@ -18,12 +18,12 @@ public class WobbleBuildings : MonoBehaviour {
 
     private IEnumerator WobbleRoutine()
     {
-        _originalRotation = transform.rotation;
+        _originalRotation = transform.localRotation;
         while (true)
         {
             _rigidBody.AddTorque(Random.Range(-1.0f, 1.0f));
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, _originalRotation, Time.deltaTime);
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, _originalRotation, Time.deltaTime);
             yield return new WaitForSeconds(Mathf.InverseLerp(0, 100.0f, _wobble));
 
 

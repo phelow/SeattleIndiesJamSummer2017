@@ -16,9 +16,24 @@ public class BuildingSpawner : MonoBehaviour
     [SerializeField]
     private GameObject p_enemy;
 
+    private bool _isConverted;
+
     public void Start()
     {
         StartCoroutine(SpawnUnit());
+    }
+
+    public void Update()
+    {
+        if (_isConverted)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0,-180,0),Time.deltaTime);
+        }
+        else
+        {
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0,0,0), Time.deltaTime);
+        }
     }
 
     IEnumerator SpawnUnit()
@@ -60,6 +75,15 @@ public class BuildingSpawner : MonoBehaviour
         _fervor = Mathf.Clamp(_fervor, 0.0f, c_maxFervor);
 
         _progressBar.SetValue(_fervor, c_maxFervor);
+        
+        if(_fervor < 50)
+        {
+            _isConverted = false;
+        }
+        else
+        {
+            _isConverted = true;
+        }
     }
 
 
