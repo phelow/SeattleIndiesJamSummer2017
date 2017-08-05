@@ -9,6 +9,7 @@ public class ObjectUI : MonoBehaviour
 
 	void LateUpdate () 
 	{
-		transform.position = Camera.main.WorldToScreenPoint( new Vector3(followObj.position.x, followObj.position.y, 0f) + offset  );
+		if( followObj != null )
+			transform.position = Camera.main.WorldToScreenPoint( new Vector3(followObj.position.x, followObj.position.y, 0f) + offset  );
 	}
 }
