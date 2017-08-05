@@ -84,6 +84,11 @@ public class SpaceShipMovement : MonoBehaviour
             _progressBar.SetValue(_fervor, c_maxFervor);
             _fervor -= hit.collider.GetComponent<FervorBucket>().GainFervor();
             _progressBar.SetValue(_fervor, c_maxFervor);
+
+            if(_fervor < 10.0f)
+            {
+                _progressBar.SetValue(0.0f, c_maxFervor);
+            }
         }
         else if (rightPressed)
         {
@@ -98,6 +103,7 @@ public class SpaceShipMovement : MonoBehaviour
 
             if (_fervor < bucket.CostToConsume())
             {
+                _progressBar.SetValue(0.0f, c_maxFervor);
                 return;
             }
             _fervor -= bucket.Consume();
