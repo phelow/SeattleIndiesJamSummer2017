@@ -32,6 +32,9 @@ public class SpaceShipMovement : MonoBehaviour
     [SerializeField]
     private GameObject [] p_harvestExplosions;
 
+    private bool _charging = false;
+
+
     // Use this for initialization
     void Start()
     {
@@ -58,10 +61,12 @@ public class SpaceShipMovement : MonoBehaviour
 
         if ((leftPressed || rightPressed) && _conversionRadius < distance)
         {
+            _charging = false;
             _rigidbody.AddForce(movement.normalized * _movementForce * Time.deltaTime);
 
             return;
         }
+
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, movement, _conversionRadius, _ignoreBuildings);
         Debug.DrawLine(transform.position, movement, Color.red);
@@ -74,14 +79,16 @@ public class SpaceShipMovement : MonoBehaviour
 
         if(!(leftPressed || rightPressed))
         {
+            _charging = false;
             return;
         }
 
 
         FervorBucket bucket = hit.collider.transform.GetComponent<FervorBucket>();
 
-        if (!bucket.IsConverted())
+        if (!bucket.IsConverted() || _charging)
         {
+            _charging = true;
             //if inside the circle convert
             renderer = GameObject.Instantiate(p_fervorGoo, hit.collider.transform.position, transform.rotation, null).GetComponent<Line2D.Line2DRenderer>();
 
@@ -101,6 +108,7 @@ public class SpaceShipMovement : MonoBehaviour
         }
         else
         {
+            _charging = false;
             //if inside the circle harvest
             renderer = GameObject.Instantiate(p_fervorGoo, hit.collider.transform.position, transform.rotation, null).GetComponent<Line2D.Line2DRenderer>();
             renderer.points = new List<Line2D.Line2DPoint>();
