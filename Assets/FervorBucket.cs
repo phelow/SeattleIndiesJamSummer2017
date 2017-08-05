@@ -22,7 +22,7 @@ public class FervorBucket : MonoBehaviour {
 
     public float CostToConsume()
     {
-        return 50.0f - _fervor;
+        return _fervor;
     }
 
     public float Consume()
@@ -44,9 +44,9 @@ public class FervorBucket : MonoBehaviour {
 
     private IEnumerator FervorRoutine()
     {
-        yield return new WaitForSeconds(1.0f);
         _fervor += .5f;
         _healthBar.SetValue(_fervor, c_maxFervor);
+        yield return new WaitForSeconds(1.0f);
         
         SetColor();
     }

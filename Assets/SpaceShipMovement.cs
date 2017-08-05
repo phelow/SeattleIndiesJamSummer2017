@@ -40,6 +40,18 @@ public class SpaceShipMovement : MonoBehaviour
     {
         p_harvestExplosions = Resources.LoadAll<GameObject>("Explosions");
         _progressBar.SetValue(_fervor, c_maxFervor);
+        StartCoroutine(AddFervor());
+    }
+
+    public IEnumerator AddFervor()
+    {
+        while (true)
+        {
+            _fervor = Mathf.Clamp(_fervor + 1.0f,0.0f,c_maxFervor);
+            _progressBar.SetValue(_fervor, c_maxFervor);
+
+            yield return new WaitForSeconds(1.0f);
+        }
     }
 
     // Update is called once per frame
@@ -115,15 +127,9 @@ public class SpaceShipMovement : MonoBehaviour
             renderer.points.Add(new Line2D.Line2DPoint(hit.collider.transform.position, .1f, Color.blue));
             renderer.points.Add(new Line2D.Line2DPoint(transform.position, .1f, Color.blue));
             renderer.GetComponent<FadeOutOverTime>().Setup(transform);
+            
 
-
-            if (_fervor < bucket.CostToConsume())
-            {
-                _progressBar.SetValue(0.0f, c_maxFervor);
-                return;
-            }
-
-            _fervor -= bucket.Consume();
+            _fervor += bucket.Consume();
             StartCoroutine(DelayedDestory(GameObject.Instantiate(p_harvestExplosions[Random.Range(0,p_harvestExplosions.Length)], (hit.collider.transform.position + Camera.main.transform.position) /2, hit.collider.transform.rotation, null)));
             Destroy(hit.collider.gameObject);
             _progressBar.SetValue(_fervor, c_maxFervor);
