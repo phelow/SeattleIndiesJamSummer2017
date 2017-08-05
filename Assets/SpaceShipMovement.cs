@@ -50,7 +50,7 @@ public class SpaceShipMovement : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, movement, _conversionRadius);
         Debug.DrawLine(transform.position, movement, Color.red);
-        if (hit == null || hit.transform == null || hit.transform.GetComponent<Consumable>() == null)
+        if (hit == null || hit.transform == null || hit.transform.GetComponent<Movement>() == null)
         {
             return;
         }
