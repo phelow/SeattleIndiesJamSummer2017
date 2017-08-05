@@ -2,36 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour {
+public class Movement : MonoBehaviour
+{
     public CityPathing pathing;
     public float moveSpeed;
 
     private Vector3 targetPosition;
-    private Rigidbody rb;
+    [SerializeField]
+    private Rigidbody2D rb;
     private Vector2 direction;
 
-	void Start () {
-        if (pathing == null) {
-            pathing = Object.FindObjectOfType<CityPathing>();
-        }
-        
-        rb = GetComponent<Rigidbody>();
+    void Start()
+    {
 
-        int random = (int)Random.Range(0, 2);
-        direction = new Vector2(random, random == 1 ? 0 : 1);
-        targetPosition = pathing.GetDestination(transform.position, direction);
-        Debug.Log(direction);
+        StartCoroutine(MoveCharacter());
     }
 
-    void Update () {
-        Vector3 rel = targetPosition - transform.position;
-        if (rel.magnitude < 0.1f) {
-            targetPosition = pathing.GetDestination(transform.position, direction);
-            rel = targetPosition - transform.position;
-            direction = new Vector2(rel.x, rel.y);
-            Debug.Log(direction);
+    private IEnumerator MoveCharacter()
+    {
+        while (true)
+        {
+            rb.AddForce(GetNewDirection()*moveSpeed);
+            yield return new WaitForSeconds(1.0f);
         }
+    }
 
-        rb.velocity = rel.normalized * moveSpeed;
+    void Update()
+    {
+    }
+
+    public Vector3 GetNewDirection()
+    {
+        int randomDirection = Random.Range(0, 4);
+        if (randomDirection == 0)
+        {
+            return new Vector2(1, 0);
+        }
+        else if (randomDirection == 1)
+        {
+            return new Vector2(0, -1);
+        }
+        else if (randomDirection == 2)
+        {
+            return new Vector2(0, 1);
+        }
+        else {
+            return new Vector2(-1, 0);
+        }
     }
 }
