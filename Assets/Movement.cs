@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public CityPathing pathing;
     public float moveSpeed;
 
     private Vector3 targetPosition;
