@@ -38,6 +38,7 @@ public class FervorBucket : MonoBehaviour {
                 return;
             }
 
+            this.GetComponent<Movement>().SetAttached(this.gameObject);
             shackle.StartShackling(this.gameObject);
             coll.gameObject.GetComponent<FervorBucket>().Convert();
         }

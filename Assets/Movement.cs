@@ -8,6 +8,14 @@ public class Movement : MonoBehaviour
 
     private Vector3 targetPosition;
 
+    private float _maxTime = 10.0f;
+    private float _timeLeft = 10.0f;
+
+    [SerializeField]
+    private ProgressBarPro _timeBar;
+
+    private FervorBucket bucket;
+
     [SerializeField]
     private Rigidbody2D rb;
     private Vector2 direction;
@@ -15,10 +23,40 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private LayerMask _buildingLayer;
 
+    [SerializeField]
+    private Animator _animator;
+
+    private GameObject _attached;
+
     void Start()
     {
-
+        bucket = this.GetComponent<FervorBucket>();
+        StartCoroutine(TickDown());
         StartCoroutine(MoveCharacter());
+    }
+
+    public void SetAttached(GameObject go)
+    {
+        _attached = go;
+    }
+
+    private IEnumerator TickDown()
+    {
+        _timeBar.SetValue(0.0f, _maxTime);
+        while (true)
+        {
+            if(_attached == null && bucket.IsConverted())
+            {
+                _timeLeft--;
+                if(_timeLeft == 0)
+                {
+                    Destroy(this.gameObject);
+                }
+                _timeBar.SetValue(_timeLeft, _maxTime);
+            }
+
+            yield return new WaitForSeconds(1.0f);
+        }
     }
 
     private IEnumerator MoveCharacter()
@@ -32,6 +70,10 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        _animator.SetFloat("Speed", rb.velocity.magnitude);
+        float angle = 180 + Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+        Quaternion quat = Quaternion.AngleAxis(angle, new Vector3(0,0,1));
+        transform.rotation = quat;
     }
 
     public Vector3 GetNewDirection()

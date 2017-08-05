@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1350025979996906}
+  m_IsPrefabParent: 1
+--- !u!1 &1350025979996906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4182368490475750}
+  - component: {fileID: 114658560471631086}
+  m_Layer: 0
+  m_Name: City
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4182368490475750
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1350025979996906}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -48, y: -48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114658560471631086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1350025979996906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed396216ff14da4fbda1b519396f088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xMapSize: 16
+  yMapSize: 16
+  blockSize: 6
+  blocks:
+  - {fileID: 114040565677101128, guid: 61a20a3e408a81a4892c3a36a0641e6c, type: 2}
+  - {fileID: 114375834276318188, guid: eced41f59f8ba9e41b5d53460f16d33d, type: 2}
+  - {fileID: 114985563129701464, guid: bffba313d976d2442ad5c205092e69f6, type: 2}
+  - {fileID: 114971791743347156, guid: a1b48d56052fa9e4586720fe48ba2c08, type: 2}
+  - {fileID: 114916455108786790, guid: 7c5714cba4f625b408663f0d9477e594, type: 2}
+  - {fileID: 114197302287958228, guid: 7bceb2347f58f9141b55d890f8c63dd2, type: 2}
+  - {fileID: 114088687118743742, guid: 870c860413c945e448300993507b30b4, type: 2}
+  - {fileID: 114157137423192922, guid: ad49ac3108dd8394a85964054e81984a, type: 2}
+  - {fileID: 114487576086822528, guid: 44ed37eaf1112b043998c94fba3481c7, type: 2}
+  - {fileID: 114950093894593994, guid: 71941b8a1588abe4582ced41dde5c706, type: 2}
