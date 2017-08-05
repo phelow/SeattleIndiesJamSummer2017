@@ -1013,66 +1013,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 33800300015912816, guid: c0108ef073439464696b64f7a8fdfaf4,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 800f37b7ca767084d9fcf4fb5c87a629, type: 3}
-    - target: {fileID: 33672269171884834, guid: c0108ef073439464696b64f7a8fdfaf4,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300002, guid: 800f37b7ca767084d9fcf4fb5c87a629, type: 3}
-    - target: {fileID: 33843602166632650, guid: c0108ef073439464696b64f7a8fdfaf4,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300004, guid: 800f37b7ca767084d9fcf4fb5c87a629, type: 3}
-    - target: {fileID: 33067186394775716, guid: c0108ef073439464696b64f7a8fdfaf4,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 800f37b7ca767084d9fcf4fb5c87a629, type: 3}
-    - target: {fileID: 33121639420266068, guid: c0108ef073439464696b64f7a8fdfaf4,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300002, guid: 800f37b7ca767084d9fcf4fb5c87a629, type: 3}
-    - target: {fileID: 33175455191457362, guid: c0108ef073439464696b64f7a8fdfaf4,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300004, guid: 800f37b7ca767084d9fcf4fb5c87a629, type: 3}
-    - target: {fileID: 33125179291649042, guid: c0108ef073439464696b64f7a8fdfaf4,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 800f37b7ca767084d9fcf4fb5c87a629, type: 3}
-    - target: {fileID: 33847127571666264, guid: c0108ef073439464696b64f7a8fdfaf4,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300002, guid: 800f37b7ca767084d9fcf4fb5c87a629, type: 3}
-    - target: {fileID: 33972323723337098, guid: c0108ef073439464696b64f7a8fdfaf4,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300004, guid: 800f37b7ca767084d9fcf4fb5c87a629, type: 3}
-    - target: {fileID: 33003566138756846, guid: c0108ef073439464696b64f7a8fdfaf4,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 800f37b7ca767084d9fcf4fb5c87a629, type: 3}
-    - target: {fileID: 33020754563096110, guid: c0108ef073439464696b64f7a8fdfaf4,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300002, guid: 800f37b7ca767084d9fcf4fb5c87a629, type: 3}
-    - target: {fileID: 33403670896104038, guid: c0108ef073439464696b64f7a8fdfaf4,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300004, guid: 800f37b7ca767084d9fcf4fb5c87a629, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0108ef073439464696b64f7a8fdfaf4, type: 2}
   m_IsPrefabParent: 0
@@ -4805,6 +4745,39 @@ Transform:
   m_PrefabParentObject: {fileID: 4736921537727486, guid: c0108ef073439464696b64f7a8fdfaf4,
     type: 2}
   m_PrefabInternal: {fileID: 1903210773}
+--- !u!1 &1957662503 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1654584245421814, guid: c0108ef073439464696b64f7a8fdfaf4,
+    type: 2}
+  m_PrefabInternal: {fileID: 60098484}
+--- !u!114 &1957662505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1957662503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41edda764b124644bbc2a7b369149265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wobble: 10
+  _rigidBody: {fileID: 1957662507}
+--- !u!54 &1957662507
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1957662503}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 5
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 62
+  m_CollisionDetection: 0
 --- !u!1001 &2001348320
 Prefab:
   m_ObjectHideFlags: 0

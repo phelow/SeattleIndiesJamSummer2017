@@ -72,7 +72,15 @@ public class SpaceShipMovement : MonoBehaviour
 
         Line2D.Line2DRenderer renderer = null;
 
-        if (leftPressed)
+        if(!(leftPressed || rightPressed))
+        {
+            return;
+        }
+
+
+        FervorBucket bucket = hit.collider.transform.GetComponent<FervorBucket>();
+
+        if (!bucket.IsConverted())
         {
             //if inside the circle convert
             renderer = GameObject.Instantiate(p_fervorGoo, hit.collider.transform.position, transform.rotation, null).GetComponent<Line2D.Line2DRenderer>();
@@ -91,7 +99,7 @@ public class SpaceShipMovement : MonoBehaviour
             _progressBar.SetValue(_fervor, c_maxFervor);
 
         }
-        else if (rightPressed)
+        else
         {
             //if inside the circle harvest
             renderer = GameObject.Instantiate(p_fervorGoo, hit.collider.transform.position, transform.rotation, null).GetComponent<Line2D.Line2DRenderer>();
@@ -100,7 +108,6 @@ public class SpaceShipMovement : MonoBehaviour
             renderer.points.Add(new Line2D.Line2DPoint(transform.position, .1f, Color.blue));
             renderer.GetComponent<FadeOutOverTime>().Setup(transform);
 
-            FervorBucket bucket = hit.collider.transform.GetComponent<FervorBucket>();
 
             if (_fervor < bucket.CostToConsume())
             {

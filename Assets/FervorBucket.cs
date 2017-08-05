@@ -12,6 +12,7 @@ public class FervorBucket : MonoBehaviour {
 	void Start () {
         _healthBar.SetValue(_fervor, c_maxFervor);
 
+        SetColor();
     }
 	
 	// Update is called once per frame
@@ -29,11 +30,37 @@ public class FervorBucket : MonoBehaviour {
         return CostToConsume();
     }
 
+    public bool IsConverted()
+    {
+        return _fervor > 50.0f;
+    }
+
     public float GainFervor()
     {
-        _fervor += 1.0f;
-        _healthBar.SetValue(_fervor, c_maxFervor);
+        _fervor += .5f;
+        StartCoroutine(FervorRoutine());
         return 1.0f;
+    }
+
+    private IEnumerator FervorRoutine()
+    {
+        yield return new WaitForSeconds(1.0f);
+        _fervor += .5f;
+        _healthBar.SetValue(_fervor, c_maxFervor);
+        
+        SetColor();
+    }
+
+    private void SetColor()
+    {
+        if (_fervor > 50.0f)
+        {
+            _healthBar.SetBarColor(Color.red);
+        }
+        else
+        {
+            _healthBar.SetBarColor(Color.blue);
+        }
     }
     
 
@@ -41,6 +68,7 @@ public class FervorBucket : MonoBehaviour {
     {
         _fervor -= 1.0f;
         _healthBar.SetValue(_fervor, c_maxFervor);
+        SetColor();
         return -1.0f;
     }
 
