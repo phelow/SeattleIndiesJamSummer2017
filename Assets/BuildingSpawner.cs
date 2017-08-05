@@ -7,6 +7,12 @@ public class BuildingSpawner : MonoBehaviour
     private static int enemyCountInScene = 0;
     private static int maxEnemyCount = 200;
 
+    private float _fervor = 0.0f;
+    private float c_maxFervor = 100.0f;
+
+    [SerializeField]
+    private ProgressBarPro _progressBar;
+
     [SerializeField]
     private GameObject p_enemy;
 
@@ -17,17 +23,18 @@ public class BuildingSpawner : MonoBehaviour
 
     IEnumerator SpawnUnit()
     {
-        while(true)
+        while (true)
         {
-            if (enemyCountInScene >= maxEnemyCount) {
+            if (enemyCountInScene >= maxEnemyCount)
+            {
                 yield return new WaitForSeconds(10.0f);
             }
 
-            Vector3 spawnPoint = transform.position + new Vector3(6.0f,0,0);
+            Vector3 spawnPoint = transform.position + new Vector3(6.0f, 0, 0);
             Collider2D collision = Physics2D.OverlapCircle(spawnPoint, p_enemy.GetComponentInChildren<CircleCollider2D>().radius);
             if (collision == null)
             {
-                GameObject enemy = Instantiate(p_enemy, transform.position,p_enemy.transform.rotation,null);
+                GameObject enemy = Instantiate(p_enemy, transform.position, p_enemy.transform.rotation, null);
                 IncrementEnemyCount();
                 enemy.GetComponent<DestroyTracker>().OnGameObjectDestroyed.AddListener(DecrementEnemyCount);
             }
@@ -36,11 +43,33 @@ public class BuildingSpawner : MonoBehaviour
         }
     }
 
-    public void IncrementEnemyCount() {
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        FervorBucket bucket = coll.gameObject.GetComponent<FervorBucket>();
+
+        if (bucket.IsConverted())
+        {
+            _fervor++;
+        }
+        else
+        {
+            _fervor--;
+        }
+
+        _fervor = Mathf.Clamp(_fervor, 0.0f, c_maxFervor);
+
+        _progressBar.SetValue(_fervor, c_maxFervor);
+    }
+
+
+    public void IncrementEnemyCount()
+    {
         enemyCountInScene++;
     }
 
-    public void DecrementEnemyCount() {
+    public void DecrementEnemyCount()
+    {
         enemyCountInScene--;
     }
 }
