@@ -1181,7 +1181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 100
-  _timeBar: {fileID: 0}
+  _timeBar: {fileID: 114300925404902906}
   rb: {fileID: 50366595817051070}
   _buildingLayer:
     serializedVersion: 2
