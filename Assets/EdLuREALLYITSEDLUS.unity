@@ -778,7 +778,7 @@ Prefab:
     - target: {fileID: 114686187718249666, guid: 7c5633de190fe7d4fbf58bdf9ed69b08,
         type: 2}
       propertyPath: _ignoreBuildings.m_Bits
-      value: 4294966271
+      value: 823
       objectReference: {fileID: 0}
     - target: {fileID: 114686187718249666, guid: 7c5633de190fe7d4fbf58bdf9ed69b08,
         type: 2}
@@ -843,8 +843,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed396216ff14da4fbda1b519396f088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMapSize: 15
-  yMapSize: 15
+  xMapSize: 16
+  yMapSize: 16
   blockSize: 6
   blocks:
   - {fileID: 114040565677101128, guid: 61a20a3e408a81a4892c3a36a0641e6c, type: 2}
@@ -854,6 +854,9 @@ MonoBehaviour:
   - {fileID: 114916455108786790, guid: 7c5714cba4f625b408663f0d9477e594, type: 2}
   - {fileID: 114197302287958228, guid: 7bceb2347f58f9141b55d890f8c63dd2, type: 2}
   - {fileID: 114088687118743742, guid: 870c860413c945e448300993507b30b4, type: 2}
+  - {fileID: 114157137423192922, guid: ad49ac3108dd8394a85964054e81984a, type: 2}
+  - {fileID: 114487576086822528, guid: 44ed37eaf1112b043998c94fba3481c7, type: 2}
+  - {fileID: 114950093894593994, guid: 71941b8a1588abe4582ced41dde5c706, type: 2}
 --- !u!4 &2017115205
 Transform:
   m_ObjectHideFlags: 0
