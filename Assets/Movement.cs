@@ -8,6 +8,14 @@ public class Movement : MonoBehaviour
 
     private Vector3 targetPosition;
 
+    private float _maxTime = 10.0f;
+    private float _timeLeft = 10.0f;
+
+    [SerializeField]
+    private ProgressBarPro _timeBar;
+
+    private FervorBucket bucket;
+
     [SerializeField]
     private Rigidbody2D rb;
     private Vector2 direction;
@@ -15,10 +23,37 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private LayerMask _buildingLayer;
 
+    private GameObject _attached;
+
     void Start()
     {
-
+        bucket = this.GetComponent<FervorBucket>();
+        StartCoroutine(TickDown());
         StartCoroutine(MoveCharacter());
+    }
+
+    public void SetAttached(GameObject go)
+    {
+        _attached = go;
+    }
+
+    private IEnumerator TickDown()
+    {
+        _timeBar.SetValue(0.0f, _maxTime);
+        while (true)
+        {
+            if(_attached == null && bucket.IsConverted())
+            {
+                _timeLeft--;
+                if(_timeLeft == 0)
+                {
+                    Destroy(this.gameObject);
+                }
+                _timeBar.SetValue(_timeLeft, _maxTime);
+            }
+
+            yield return new WaitForSeconds(1.0f);
+        }
     }
 
     private IEnumerator MoveCharacter()

@@ -24,9 +24,6 @@ public class SpaceShipMovement : MonoBehaviour
     private float c_maxFervor = 1000;
 
     [SerializeField]
-    private ProgressBarPro _progressBar;
-
-    [SerializeField]
     private LayerMask _ignoreBuildings;
 
     [SerializeField]
@@ -41,7 +38,6 @@ public class SpaceShipMovement : MonoBehaviour
     {
         s_instance = this;
         p_harvestExplosions = Resources.LoadAll<GameObject>("Explosions");
-        _progressBar.SetValue(_fervor, c_maxFervor);
         StartCoroutine(AddFervor());
     }
 
@@ -50,7 +46,6 @@ public class SpaceShipMovement : MonoBehaviour
         while (true)
         {
             _fervor = Mathf.Clamp(_fervor + 1.0f,0.0f,c_maxFervor);
-            _progressBar.SetValue(_fervor, c_maxFervor);
 
             yield return new WaitForSeconds(1.0f);
         }
@@ -109,15 +104,7 @@ public class SpaceShipMovement : MonoBehaviour
             bucket.Convert();
 
             bucket.gameObject.GetComponent<SpringyShackle>().StartShackling(this.gameObject);
-
-            _fervor -= 10.0f;
-            if (_fervor < 10.0f)
-            {
-                _progressBar.SetValue(0.0f, c_maxFervor);
-                return;
-            }
-            _progressBar.SetValue(_fervor, c_maxFervor);
-
+            
         }
     }
 

@@ -63,6 +63,11 @@ public class BuildingSpawner : MonoBehaviour
     {
         FervorBucket bucket = coll.gameObject.GetComponent<FervorBucket>();
 
+        if(bucket == null)
+        {
+            return;
+        }
+
         if (bucket.IsConverted())
         {
             _fervor++;
