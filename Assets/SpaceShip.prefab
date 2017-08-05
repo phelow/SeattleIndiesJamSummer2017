@@ -513,6 +513,10 @@ MonoBehaviour:
   p_harvestGoo: {fileID: 1671138282552360, guid: 1729987bc25da6048865d2666761046a,
     type: 2}
   _progressBar: {fileID: 114298044665852362}
+  _ignoreBuildings:
+    serializedVersion: 2
+    m_Bits: 4294966271
+  p_harvestExplosions: []
 --- !u!114 &114846332066415118
 MonoBehaviour:
   m_ObjectHideFlags: 1
