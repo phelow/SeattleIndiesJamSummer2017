@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BuildingSpawner : MonoBehaviour
 {
+    private static int enemyCountInScene = 0;
+    private static int maxEnemyCount = 200;
+
     [SerializeField]
     private GameObject p_enemy;
 
@@ -16,14 +19,28 @@ public class BuildingSpawner : MonoBehaviour
     {
         while(true)
         {
+            if (enemyCountInScene >= maxEnemyCount) {
+                yield return new WaitForSeconds(10.0f);
+            }
+
             Vector3 spawnPoint = transform.position + new Vector3(6.0f,0,0);
             Collider2D collision = Physics2D.OverlapCircle(spawnPoint, p_enemy.GetComponentInChildren<CircleCollider2D>().radius);
-            if(collision == null)
+            if (collision == null)
             {
-                Instantiate(p_enemy, transform.position, p_enemy.transform.rotation,null);
+                GameObject enemy = Instantiate(p_enemy, transform.position,p_enemy.transform.rotation,null);
+                IncrementEnemyCount();
+                enemy.GetComponent<DestroyTracker>().OnGameObjectDestroyed.AddListener(DecrementEnemyCount);
             }
 
             yield return new WaitForSeconds(10.0f);
         }
+    }
+
+    public void IncrementEnemyCount() {
+        enemyCountInScene++;
+    }
+
+    public void DecrementEnemyCount() {
+        enemyCountInScene--;
     }
 }
