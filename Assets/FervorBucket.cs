@@ -21,6 +21,6 @@ public class FervorBucket : MonoBehaviour {
 
     public float Consume()
     {
-        return -CostToConsume();
+        return CostToConsume();
     }
 }
