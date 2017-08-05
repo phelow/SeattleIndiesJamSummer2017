@@ -74,9 +74,12 @@ public class BuildingSpawner : MonoBehaviour
 
         _fervor = Mathf.Clamp(_fervor, 0.0f, c_maxFervor);
 
-        _progressBar.SetValue(_fervor, c_maxFervor);
-        
-        if(_fervor < 50)
+        if (_progressBar != null)
+        {
+            _progressBar.SetValue(_fervor, c_maxFervor);
+        }
+
+        if (_fervor < 50)
         {
             _isConverted = false;
         }
