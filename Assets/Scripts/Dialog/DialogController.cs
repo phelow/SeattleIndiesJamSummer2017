@@ -45,6 +45,8 @@ public class DialogController : MonoBehaviour
 	{
 		table = 0;
 
+		if( DialogDefs.singleton == null )
+			Debug.Log("aaa");
 		display.onComplete = recursive;
 		display.StartDisplay( DialogDefs.singleton.SelectRandom(table).text );
 	}

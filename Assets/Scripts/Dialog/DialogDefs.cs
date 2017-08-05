@@ -10,7 +10,10 @@ public class DialogDefs : MonoBehaviour
 {
 	#region singleton
 	private static DialogDefs _instance;
-	public static DialogDefs singleton;
+	public static DialogDefs singleton
+	{
+		get{ return _instance; }
+	}
 
 	void Awake()
 	{
@@ -21,12 +24,11 @@ public class DialogDefs : MonoBehaviour
 	}
 	#endregion
 
-	[SerializeField] public List<List<DialogEntry>> tables;
-
+	[SerializeField] public List<DialogTable> tables;
 
 	public DialogEntry SelectRandom( int table )
 	{
-		return tables[table][ Random.Range( 0, tables[table].Count ) ];
+		return tables[table].entries[ Random.Range( 0, tables[table].entries.Count ) ];
 	}
 
 

@@ -6,7 +6,15 @@ using Sirenix.OdinInspector;
 [System.Serializable]
 public class DialogEntry
 {
-	[Range(0f, 100f)] public float persuasion = 50f;
+	[Range(0f, 100f)] 
+	public float persuasion = 50f;
 
-	[Multiline] public string text;
+	[Multiline] 
+	public string text;
+}
+
+[System.Serializable]
+public class DialogTable
+{
+	public List<DialogEntry> entries;
 }

@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class DisplayString : MonoBehaviour 
 {
-	private AudioSource dialogAudio;
-	private Text display;
+	//private AudioSource dialogAudio;
+	public TextMeshProUGUI textMesh;
 
 	void Awake () 
 	{
-		display = GetComponentInChildren<Text>();
-		dialogAudio = GetComponent<AudioSource>();
+		//dialogAudio = GetComponent<AudioSource>();
 
 		StartCoroutine(Display());
 	}
@@ -26,7 +26,8 @@ public class DisplayString : MonoBehaviour
 			charIndex = 0;
 			_fullText = value + " ";
 
-			StopCoroutine( routine );
+			if( routine != null )
+				StopCoroutine( routine );
 			routine = StartCoroutine( Display() );
 		}
 	}
@@ -62,6 +63,6 @@ public class DisplayString : MonoBehaviour
 
 	void DisplayPartial( string full, int charCount )
 	{
-		display.text = full.Remove( charCount );
+		textMesh.text = full.Remove( charCount );
 	}
 }
