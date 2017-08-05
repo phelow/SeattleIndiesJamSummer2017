@@ -35,4 +35,31 @@ public class FervorBucket : MonoBehaviour {
         _healthBar.SetValue(_fervor, c_maxFervor);
         return 1.0f;
     }
+    
+
+    public float LoseFervor()
+    {
+        _fervor -= 1.0f;
+        _healthBar.SetValue(_fervor, c_maxFervor);
+        return -1.0f;
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        FervorBucket bucket = coll.gameObject.GetComponent<FervorBucket>();
+
+        if(bucket == null)
+        {
+            return;
+        }
+
+        if(_fervor > 50)
+        {
+            bucket.LoseFervor();
+        }
+        else
+        {
+            bucket.GainFervor();
+        }
+    }
 }
