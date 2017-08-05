@@ -3,16 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FervorBucket : MonoBehaviour {
-    private float _fervor = 20.0f;
-    private float c_maxFervor = 100.0f;
-
-    [SerializeField]
-    private ProgressBarPro _healthBar;
+    private bool m_converted = false;
 	// Use this for initialization
 	void Start () {
-        _healthBar.SetValue(_fervor, c_maxFervor);
-
-        SetColor();
     }
 	
 	// Update is called once per frame
@@ -22,77 +15,31 @@ public class FervorBucket : MonoBehaviour {
 
     public void Convert()
     {
-        _fervor = 100.0f;
-    }
-
-    public float CostToConsume()
-    {
-        return _fervor;
-    }
-
-    public float Consume()
-    {
-        return CostToConsume();
-    }
-
-    public bool IsConverted()
-    {
-        return _fervor > 50.0f;
-    }
-
-    public float GainFervor()
-    {
-        _fervor += .5f;
-        StartCoroutine(FervorRoutine());
-        return 1.0f;
-    }
-
-    private IEnumerator FervorRoutine()
-    {
-        _fervor += .5f;
-        _healthBar.SetValue(_fervor, c_maxFervor);
-        yield return new WaitForSeconds(1.0f);
-        
-        SetColor();
-    }
-
-    private void SetColor()
-    {
-        if (_fervor > 50.0f)
-        {
-            _healthBar.SetBarColor(Color.red);
-        }
-        else
-        {
-            _healthBar.SetBarColor(Color.blue);
-        }
+        m_converted = true;
     }
     
-
-    public float LoseFervor()
+    public bool IsConverted()
     {
-        _fervor -= 1.0f;
-        _healthBar.SetValue(_fervor, c_maxFervor);
-        SetColor();
-        return -1.0f;
+        return m_converted;
     }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        FervorBucket bucket = coll.gameObject.GetComponent<FervorBucket>();
+        if (m_converted)
+        {
+            SpringyShackle shackle = coll.gameObject.GetComponent<SpringyShackle>();
+            if(shackle == null)
+            {
+                return;
+            }
 
-        if(bucket == null)
-        {
-            return;
-        }
+            if (shackle.gameObject.GetComponent<FervorBucket>().IsConverted())
+            {
+                return;
+            }
 
-        if(_fervor > 50)
-        {
-            bucket.LoseFervor();
-        }
-        else
-        {
-            bucket.GainFervor();
+            shackle.StartShackling(this.gameObject);
+            coll.gameObject.GetComponent<FervorBucket>().Convert();
         }
     }
 }

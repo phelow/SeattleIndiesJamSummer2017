@@ -108,7 +108,7 @@ public class SpaceShipMovement : MonoBehaviour
             //if inside the circle convert
             bucket.Convert();
 
-            bucket.gameObject.GetComponent<SpringyShackle>().StartShackling();
+            bucket.gameObject.GetComponent<SpringyShackle>().StartShackling(this.gameObject);
 
             _fervor -= 10.0f;
             if (_fervor < 10.0f)
