@@ -51,8 +51,6 @@ public class CityGenerator : MonoBehaviour
         int xRandom = (int)Random.Range(-blockSize, blockSize);
         int yRandom = (int)Random.Range(-blockSize, blockSize);
 
-        Debug.Log(xRandom + " " + yRandom);
-
         Vector3 position = new Vector3(x * blockSize, y * blockSize, 0);
         Vector3 globalPosition = transform.TransformPoint(position) + new Vector3(xRandom, yRandom, 0);
         Instantiate<BlockFootprint>(block, globalPosition, Quaternion.identity, null);
