@@ -34,10 +34,12 @@ public class SpaceShipMovement : MonoBehaviour
 
     private bool _charging = false;
 
+    public static SpaceShipMovement s_instance;
 
     // Use this for initialization
     void Start()
     {
+        s_instance = this;
         p_harvestExplosions = Resources.LoadAll<GameObject>("Explosions");
         _progressBar.SetValue(_fervor, c_maxFervor);
         StartCoroutine(AddFervor());
@@ -100,41 +102,22 @@ public class SpaceShipMovement : MonoBehaviour
 
         FervorBucket bucket = hit.collider.transform.GetComponent<FervorBucket>();
 
-        if (leftPressed && (!bucket.IsConverted() || _charging))
+        if (leftPressed && (!bucket.IsConverted()))
         {
             _charging = true;
             //if inside the circle convert
-            renderer = GameObject.Instantiate(p_fervorGoo, hit.collider.transform.position, transform.rotation, null).GetComponent<Line2D.Line2DRenderer>();
+            bucket.Convert();
 
-            renderer.points = new List<Line2D.Line2DPoint>();
-            renderer.points.Add(new Line2D.Line2DPoint(transform.position, .1f, Color.red));
-            renderer.points.Add(new Line2D.Line2DPoint(hit.collider.transform.position, .1f, Color.red));
-            renderer.GetComponent<FadeOutOverTime>().Setup(hit.collider.transform);
-            _progressBar.SetValue(_fervor, c_maxFervor);
+            bucket.gameObject.GetComponent<SpringyShackle>().StartShackling(this.gameObject);
+
+            _fervor -= 10.0f;
             if (_fervor < 10.0f)
             {
                 _progressBar.SetValue(0.0f, c_maxFervor);
                 return;
             }
-            _fervor -= hit.collider.GetComponent<FervorBucket>().GainFervor();
             _progressBar.SetValue(_fervor, c_maxFervor);
 
-        }
-        else if (rightPressed && bucket.IsConverted())
-        {
-            _charging = false;
-            //if inside the circle harvest
-            renderer = GameObject.Instantiate(p_fervorGoo, hit.collider.transform.position, transform.rotation, null).GetComponent<Line2D.Line2DRenderer>();
-            renderer.points = new List<Line2D.Line2DPoint>();
-            renderer.points.Add(new Line2D.Line2DPoint(hit.collider.transform.position, .1f, Color.blue));
-            renderer.points.Add(new Line2D.Line2DPoint(transform.position, .1f, Color.blue));
-            renderer.GetComponent<FadeOutOverTime>().Setup(transform);
-            
-
-            _fervor += bucket.Consume();
-            StartCoroutine(DelayedDestory(GameObject.Instantiate(p_harvestExplosions[Random.Range(0,p_harvestExplosions.Length)], (hit.collider.transform.position + Camera.main.transform.position) /2, hit.collider.transform.rotation, null)));
-            Destroy(hit.collider.gameObject);
-            _progressBar.SetValue(_fervor, c_maxFervor);
         }
     }
 
