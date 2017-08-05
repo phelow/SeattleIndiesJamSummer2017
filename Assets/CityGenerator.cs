@@ -48,8 +48,13 @@ public class CityGenerator : MonoBehaviour
 
     void PlaceBlockAt(BlockFootprint block, int y, int x)
     {
+        int xRandom = (int)Random.Range(-blockSize, blockSize);
+        int yRandom = (int)Random.Range(-blockSize, blockSize);
+
+        Debug.Log(xRandom + " " + yRandom);
+
         Vector3 position = new Vector3(x * blockSize, y * blockSize, 0);
-        Vector3 globalPosition = transform.TransformPoint(position);
+        Vector3 globalPosition = transform.TransformPoint(position) + new Vector3(xRandom, yRandom, 0);
         Instantiate<BlockFootprint>(block, globalPosition, Quaternion.identity, null);
 
         for (int yFootprint = 0; yFootprint < block.footprintRows.Count; yFootprint++)
@@ -86,9 +91,9 @@ public class CityGenerator : MonoBehaviour
 
     bool IsSurroundingAreaClear(int yCoord, int xCoord)
     {
-        for (int y = yCoord-1; y < yCoord+1; y++)
+        for (int y = yCoord-1; y <= yCoord+1; y++)
         {
-            for (int x = xCoord-1; x < xCoord+1; x++)
+            for (int x = xCoord-1; x <= xCoord+1; x++)
             {
                 if (y < 0 || y >= yMapSize || x < 0 || x >= xMapSize || isBlockOccupied[y,x])
                 {
