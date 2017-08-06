@@ -27,7 +27,7 @@ public class DialogParticipant : MonoBehaviour
 
 			if( other.inConversation == true )
 			{
-				other.conversation.Add( this );
+				//other.conversation.Add( this );
 			}
 			else
 			{
