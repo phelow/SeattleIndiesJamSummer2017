@@ -120,7 +120,7 @@ public class Movement : MonoBehaviour
         //explosion1.GetComponent<ParticleSystem>().Stop();
         GameObject explosion2 = GameObject.Instantiate(_explosions[1], position, rotation, null);
 
-        
+
         Destroy(this.gameObject);
 
         //this.gameObject.SetActive(false);
