@@ -169,22 +169,92 @@ MonoBehaviour:
     - persuasion: 50
       text: "My soul\u2026 \"tickles\" a little."
     - persuasion: 50
-      text: 
+      text: I feel a vibration. Should I heed it?
     - persuasion: 50
-      text: 
+      text: A sense of purpose would cheer me up a bit.
     - persuasion: 50
-      text: 
+      text: "Hmm\u2026 tell me more."
     - persuasion: 50
-      text: 
+      text: What flavors of Kool-aid do you have?
     - persuasion: 50
-      text: 
+      text: Well my soul has felt a little dirty lately.
     - persuasion: 50
-      text: 
+      text: What was the part about the Celestial Brownie?
     - persuasion: 50
-      text: 
+      text: Just how glorious is the Glorious System?
     - persuasion: 50
-      text: 
+      text: You do seem to have a special glow about you.
     - persuasion: 50
-      text: 
+      text: Do I get to actually meet Vrod?
     - persuasion: 50
-      text: 
+      text: Seems kinda legit.
+  - entries:
+    - persuasion: 50
+      text: Yes, that's it. Feel the power of Vrod moving within you.
+    - persuasion: 50
+      text: Through the power of Vrod, you can be uploaded to the Glorious System.
+    - persuasion: 50
+      text: Great benefits are to be yours, if you just sign right here.
+    - persuasion: 50
+      text: Vrod speaks in mysterious ways. Yesterday, they said, "Beep boop beep!"
+    - persuasion: 50
+      text: Only through Vrod will you feel a sense of purpose and fulfillment.
+    - persuasion: 50
+      text: Sign up today and get a free sonic screwdriver. But only if you're over
+        21.
+    - persuasion: 50
+      text: We're a totally unique religion, the first to incorporate science!
+    - persuasion: 50
+      text: Each convert gets their own space ship.
+    - persuasion: 50
+      text: Plus, saving your own soul will save this planet.
+    - persuasion: 50
+      text: Plant the seed; it will grow into space-faith.
+    - persuasion: 50
+      text: It is your density.
+    - persuasion: 50
+      text: Dance with Vrod in the Glorious System above!
+    - persuasion: 50
+      text: Each new follower gets a Free Vrod T-shirt! Free Vrod!
+    - persuasion: 50
+      text: Miracles lie in wait for the truest of the devout.
+    - persuasion: 50
+      text: Kneel before Vrod. Just kneel already!
+  - entries:
+    - persuasion: 50
+      text: Yes. I see now. I must spread the word.
+    - persuasion: 50
+      text: "Oh! I get it! I must tell my friends and family, coworkers, janitor,
+        librarian, doct\u2013..."
+    - persuasion: 50
+      text: Why not? Everyone needs something to believe in.
+    - persuasion: 50
+      text: Eh, I was unhappy with the old answers anyway.
+    - persuasion: 50
+      text: It's cool to be weird!
+    - persuasion: 50
+      text: Vrod has touched a special place deep inside me.
+    - persuasion: 50
+      text: Cool! Now when do I get the cool robes?
+    - persuasion: 50
+      text: It's good to have friends.
+    - persuasion: 50
+      text: Spacedust flavored Kool-Aid.. my favorite!
+    - persuasion: 50
+      text: Now I'll live forever, right?
+    - persuasion: 50
+      text: Oh the joy! I can barely stand it! I must tell everyone!
+    - persuasion: 50
+      text: At last I understand. How was I so ignorant before?
+    - persuasion: 50
+      text: My heart has escaped the confines of its hell. Freedom for all!
+    - persuasion: 50
+      text: I am uplifted on the elevator to Celestial Bliss!
+    - persuasion: 50
+      text: No more sorrow, no more pain. Vrod has helped me see plainly again.
+    - persuasion: 50
+      text: ONE OF YOU! ONE OF YOU!
+    - persuasion: 50
+      text: Free Vrod!
+    - persuasion: 50
+      text: You have saved me from myself! Blessed Glorious System!
