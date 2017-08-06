@@ -30,7 +30,7 @@ public class SpaceShipMovement : MonoBehaviour
     private LayerMask _ignoreBuildings;
 
     [SerializeField]
-    private GameObject [] p_harvestExplosions;
+    private GameObject[] p_harvestExplosions;
 
     private bool _charging = false;
 
@@ -48,7 +48,7 @@ public class SpaceShipMovement : MonoBehaviour
     {
         while (true)
         {
-            _fervor = Mathf.Clamp(_fervor + 1.0f,0.0f,c_maxFervor);
+            _fervor = Mathf.Clamp(_fervor + 1.0f, 0.0f, c_maxFervor);
 
             yield return new WaitForSeconds(1.0f);
         }
@@ -57,6 +57,10 @@ public class SpaceShipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float angle = 180 + Mathf.Atan2(_rigidbody.velocity.y, _rigidbody.velocity.x) * Mathf.Rad2Deg;
+        Quaternion quat = Quaternion.AngleAxis(angle, new Vector3(0, 0, 1));
+        transform.rotation = Quaternion.Lerp(transform.rotation, quat, Time.deltaTime);
+
         bool leftPressed = Input.GetMouseButton(0);
         bool rightPressed = Input.GetMouseButton(1);
 
@@ -73,43 +77,36 @@ public class SpaceShipMovement : MonoBehaviour
 
         //if outside the circle move
 
-        if (/*(leftPressed || rightPressed) && */_conversionRadius < distance)
-        {
-            _charging = false;
-            float movementForce = _movementForce * (distance / 2);
-            _rigidbody.AddForce(movement.normalized * movementForce * Time.deltaTime);
-             
-            return;
-        }
+        _charging = false;
+        _rigidbody.AddForce(movement.normalized * _movementForce * Time.deltaTime);
 
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, movement, _conversionRadius, _ignoreBuildings);
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(transform.position, _conversionRadius, Vector2.up, 1.0f, _ignoreBuildings);
         Debug.DrawLine(transform.position, movement, Color.red);
-        if (hit == null || hit.transform == null || hit.transform.GetComponent<Movement>() == null)
+        if (hit.Length == 0)
         {
             return;
         }
 
-        Line2D.Line2DRenderer renderer = null;
 
-        if(!(leftPressed || rightPressed))
+        foreach (RaycastHit2D h in hit)
         {
-            _charging = false;
-            return;
-        }
+            FervorBucket bucket = h.collider.transform.GetComponent<FervorBucket>();
 
+            if (bucket == null)
+            {
+                continue;
+            }
 
-        FervorBucket bucket = hit.collider.transform.GetComponent<FervorBucket>();
+            if (!bucket.IsConverted())
+            {
+                _charging = true;
+                //if inside the circle convert
+                bucket.Convert();
 
-        if (leftPressed && (!bucket.IsConverted()))
-        {
-            _charging = true;
-            //if inside the circle convert
-            bucket.Convert();
+                bucket.gameObject.GetComponent<SpringyShackle>().StartShackling(this.gameObject);
 
-            bucket.gameObject.GetComponent<SpringyShackle>().StartShackling(this.gameObject);
-            
-            WinCondition.s_instance.NewPersonChained();
+                WinCondition.s_instance.NewPersonChained();
+            }
         }
     }
 
