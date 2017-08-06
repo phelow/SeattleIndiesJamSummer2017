@@ -33,7 +33,7 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-GeneratedOdinEditors.dll
-GeneratedOdinEditors.dll.mdb
-Sirenix.OdinInspector.Editor.dll
-TextMeshPro*Editor.dll
+GeneratedOdinEditors.dll*
+GeneratedOdinEditors.dll.mdb*
+Sirenix.OdinInspector.Editor.dll*
+TextMeshPro*Editor.dll*
