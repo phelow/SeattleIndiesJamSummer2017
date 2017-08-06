@@ -9,7 +9,7 @@ public class WinTimer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         
-        _text.text = "Your Time:" + PlayerPrefs.GetString("CurrentTimeString","1:10") + " Best Time:" + PlayerPrefs.GetString("LowTimeString","9:55");
+        _text.text = "Your Time: " + PlayerPrefs.GetString("CurrentTimeString","1:10") + "              Best Time: " + PlayerPrefs.GetString("LowTimeString","9:55");
 
         if (PlayerPrefs.GetInt("CurrentTime") < PlayerPrefs.GetInt("LowTime",9999))
         {
