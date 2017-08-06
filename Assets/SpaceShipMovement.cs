@@ -14,6 +14,9 @@ public class SpaceShipMovement : MonoBehaviour
     private float _movementForce = 100.0f;
 
     [SerializeField]
+    private float _maximumMovementForce = 5000.0f;
+
+    [SerializeField]
     private GameObject p_fervorGoo;
 
     [SerializeField]
@@ -73,7 +76,8 @@ public class SpaceShipMovement : MonoBehaviour
         if (/*(leftPressed || rightPressed) && */_conversionRadius < distance)
         {
             _charging = false;
-            _rigidbody.AddForce(movement.normalized * _movementForce * (distance / 2) * Time.deltaTime);
+            float movementForce = _movementForce * (distance / 2);
+            _rigidbody.AddForce(movement.normalized * movementForce * Time.deltaTime);
              
             return;
         }
