@@ -224,8 +224,8 @@ MonoBehaviour:
     - persuasion: 50
       text: Yes. I see now. I must spread the word.
     - persuasion: 50
-      text: "Oh! I get it! I must tell my friends and family, coworkers, janitor,
-        librarian, doct\u2013..."
+      text: "Oh! I get it! I must tell my friends and family, coworkers, librarian,
+        doct\u2013..."
     - persuasion: 50
       text: Why not? Everyone needs something to believe in.
     - persuasion: 50
