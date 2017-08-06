@@ -32,7 +32,7 @@ class WinCondition: MonoBehaviour
 
     private void Update()
     {
-        _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, Mathf.Lerp(5, 20, _completionRatio), Time.deltaTime);
+        _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, Mathf.Lerp(8, 20, _completionRatio), Time.deltaTime);
     }
 
     public void NewPersonChained()
@@ -58,54 +58,7 @@ class WinCondition: MonoBehaviour
         float toFlip = Mathf.Ceil( m_spawners.Count * completionRatio);
         _completionRatio = completionRatio;
 
-        List<BuildingSpawner> orderedBuildingsToConvert = new List<BuildingSpawner>();
-        List<BuildingSpawner> buildingsLeft = new List<BuildingSpawner>();
-
-        int numBuildingsConverted = 0;
-
-        if (this == null) return;
-
-        Vector3 centerPos = this.transform.position;
-
-        
-        foreach (BuildingSpawner thisBuilding in m_spawners)
-        {
-
-            if (thisBuilding == null) break;
-            Vector3 thisBuildingPos = thisBuilding.transform.position;
-            float thisBuildingDistance = Vector3.Distance(thisBuildingPos, centerPos);
-
-            if (thisBuilding.isConverted)
-            {
-                numBuildingsConverted++;
-            }
-            else
-            {
-                if (orderedBuildingsToConvert.Count == 0) orderedBuildingsToConvert.Add(thisBuilding);
-                else
-                {
-                    int i = 0;
-                    foreach(BuildingSpawner refBuilding in orderedBuildingsToConvert)
-                    {
-                        Vector3 refBuildingPos = refBuilding.transform.position;
-                        float refBuildingDistance = Vector3.Distance(refBuildingPos, centerPos);
-
-
-                        if (thisBuildingDistance <= refBuildingDistance)
-                        {
-                            orderedBuildingsToConvert.Insert(i, thisBuilding);
-                            break;
-                        }
-
-                        i++;
-                    }
-                }
-            }
-        }
-
-        toFlip -= numBuildingsConverted;
-
-        foreach (BuildingSpawner spawner in orderedBuildingsToConvert)
+        foreach (BuildingSpawner spawner in m_spawners)
         {
             if (toFlip > 0.0f)
             {

@@ -30,7 +30,7 @@ public class SpaceShipMovement : MonoBehaviour
     private LayerMask _ignoreBuildings;
 
     [SerializeField]
-    private GameObject [] p_harvestExplosions;
+    private GameObject[] p_harvestExplosions;
 
     private bool _charging = false;
 
@@ -48,7 +48,7 @@ public class SpaceShipMovement : MonoBehaviour
     {
         while (true)
         {
-            _fervor = Mathf.Clamp(_fervor + 1.0f,0.0f,c_maxFervor);
+            _fervor = Mathf.Clamp(_fervor + 1.0f, 0.0f, c_maxFervor);
 
             yield return new WaitForSeconds(1.0f);
         }
@@ -77,16 +77,10 @@ public class SpaceShipMovement : MonoBehaviour
 
         //if outside the circle move
 
-        if (/*(leftPressed || rightPressed) && */_conversionRadius < distance)
-        {
-            _charging = false;
-            float movementForce = _movementForce * (distance / 2);
-            _rigidbody.AddForce(movement.normalized * movementForce * Time.deltaTime);
-             
-        }
+        _charging = false;
+        _rigidbody.AddForce(movement.normalized * _movementForce * Time.deltaTime);
 
-
-        RaycastHit2D [] hit = Physics2D.CircleCastAll(transform.position, _conversionRadius, Vector2.up,1.0f,_ignoreBuildings);
+        RaycastHit2D[] hit = Physics2D.CircleCastAll(transform.position, _conversionRadius, Vector2.up, 1.0f, _ignoreBuildings);
         Debug.DrawLine(transform.position, movement, Color.red);
         if (hit.Length == 0)
         {
@@ -98,7 +92,7 @@ public class SpaceShipMovement : MonoBehaviour
         {
             FervorBucket bucket = h.collider.transform.GetComponent<FervorBucket>();
 
-            if(bucket == null)
+            if (bucket == null)
             {
                 continue;
             }
