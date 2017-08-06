@@ -16,7 +16,7 @@ public class SpringyShackle : MonoBehaviour {
 
     // Update is called once per frame
     private IEnumerator LineRoutine (GameObject target) {
-        line = GameObject.Instantiate(p_line);
+        line = GameObject.Instantiate(p_line,this.transform);
 
         line.points = new List<Line2D.Line2DPoint>();
         line.points.Add(new Line2D.Line2DPoint());
