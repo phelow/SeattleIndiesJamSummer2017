@@ -105,6 +105,7 @@ public class SpaceShipMovement : MonoBehaviour
 
             bucket.gameObject.GetComponent<SpringyShackle>().StartShackling(this.gameObject);
             
+            WinCondition.s_instance.NewPersonChained();
         }
     }
 

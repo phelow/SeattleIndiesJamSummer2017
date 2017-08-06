@@ -8,8 +8,8 @@ public class Movement : MonoBehaviour
 
     private Vector3 targetPosition;
 
-    private float _maxTime = 10.0f;
-    private float _timeLeft = 10.0f;
+    private float _maxTime = 15.0f;
+    private float _timeLeft = 15.0f;
 
     [SerializeField]
     private ProgressBarPro _timeBar;
@@ -22,6 +22,9 @@ public class Movement : MonoBehaviour
 
     [SerializeField]
     private LayerMask _buildingLayer;
+
+    [SerializeField]
+    private Animator _animator;
 
     private GameObject _attached;
 
@@ -66,6 +69,11 @@ public class Movement : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        WinCondition.s_instance.PersonDied();
+    }
+
     private IEnumerator MoveCharacter()
     {
         while (true)
@@ -77,6 +85,10 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        _animator.SetFloat("Speed", rb.velocity.magnitude);
+        float angle = 180 + Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+        Quaternion quat = Quaternion.AngleAxis(angle, new Vector3(0,0,1));
+        transform.rotation = quat;
     }
 
     public Vector3 GetNewDirection()
