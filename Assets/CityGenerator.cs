@@ -19,11 +19,11 @@ public class CityGenerator : MonoBehaviour
 
     void Generate()
     {
-        isBlockOccupied = new bool[yMapSize,xMapSize];
+        isBlockOccupied = new bool[yMapSize, xMapSize];
 
-        for (int y = 1; y < yMapSize-1; y++)
+        for (int y = 1; y < yMapSize - 1; y++)
         {
-            for (int x = 1; x < xMapSize-1; x++)
+            for (int x = 1; x < xMapSize - 1; x++)
             {
                 if (!IsSurroundingAreaClear(y, x))
                 {
@@ -63,7 +63,7 @@ public class CityGenerator : MonoBehaviour
                 bool isOccupied = isOccupiedChar != '0';
                 if (isOccupied)
                 {
-                    isBlockOccupied[y+yFootprint,x+xFootprint] = true;
+                    isBlockOccupied[y + yFootprint, x + xFootprint] = true;
                 }
             }
         }
@@ -89,11 +89,11 @@ public class CityGenerator : MonoBehaviour
 
     bool IsSurroundingAreaClear(int yCoord, int xCoord)
     {
-        for (int y = yCoord-1; y <= yCoord+1; y++)
+        for (int y = yCoord - 1; y <= yCoord + 1; y++)
         {
-            for (int x = xCoord-1; x <= xCoord+1; x++)
+            for (int x = xCoord - 1; x <= xCoord + 1; x++)
             {
-                if (y < 0 || y >= yMapSize || x < 0 || x >= xMapSize || isBlockOccupied[y,x])
+                if (y < 0 || y >= yMapSize || x < 0 || x >= xMapSize || isBlockOccupied[y, x])
                 {
                     return false;
                 }
@@ -103,13 +103,13 @@ public class CityGenerator : MonoBehaviour
         return true;
     }
 
-    public void Shuffle<T>(IList<T> list)  
-    {  
-        int n = list.Count;  
+    public void Shuffle<T>(IList<T> list)
+    {
+        int n = list.Count;
         while (n > 1)
         {
             n--;
-            int k = (int)Random.Range(0, n+1);
+            int k = (int)Random.Range(0, n + 1);
             T value = list[k];
             list[k] = list[n];
             list[n] = value;

@@ -73,10 +73,6 @@ public class DialogController : MonoBehaviour
 
 	public void Add( DialogParticipant newParticipant )
 	{
-        if(participants.Count > 4)
-        {
-            return;
-        }
 		participants.Add( newParticipant );
 		newParticipant.conversation = this;
 	}

@@ -27,7 +27,7 @@ public class BuildingSpawner : MonoBehaviour
     {
         if (_isConverted)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0,-180,0),Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(180,0,0),Time.deltaTime);
         }
         else
         {
