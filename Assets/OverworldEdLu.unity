@@ -854,6 +854,11 @@ Prefab:
       propertyPath: p_harvestExplosions.Array.data[121]
       value: 
       objectReference: {fileID: 100002, guid: cdd3ce5d7365fc340838a3f5c23ccb5c, type: 2}
+    - target: {fileID: 114925963313765972, guid: 7c5633de190fe7d4fbf58bdf9ed69b08,
+        type: 2}
+      propertyPath: numberUnit
+      value: /100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c5633de190fe7d4fbf58bdf9ed69b08, type: 2}
   m_IsPrefabParent: 0
