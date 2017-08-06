@@ -25,7 +25,7 @@ class WinCondition : MonoBehaviour
 
     private float _completionRatio;
 
-    public float maxZoom = -30;
+    public float maxZoom = -25;
     public float minZoom = -40;
 
     void Start()

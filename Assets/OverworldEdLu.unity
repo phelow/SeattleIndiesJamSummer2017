@@ -3183,7 +3183,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 100
   m_Depth: -1
   m_CullingMask:
@@ -3534,6 +3534,8 @@ MonoBehaviour:
   newFollowerSound: {fileID: 8300000, guid: 7a1f39b3317666a47b086fe2378bf489, type: 3}
   followerDiedSound: {fileID: 8300000, guid: 3512cc3cafba51640b6018d3fbe10fda, type: 3}
   _camera: {fileID: 1125447072}
+  maxZoom: -40
+  minZoom: -25
 --- !u!50 &1237284173
 Rigidbody2D:
   serializedVersion: 4
@@ -3588,7 +3590,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1237284170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -20}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271719023}
