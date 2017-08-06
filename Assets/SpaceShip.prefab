@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 114686187718249666}
   - component: {fileID: 50194920386908680}
   - component: {fileID: 114081359868813984}
+  - component: {fileID: 58427816944057198}
   m_Layer: 11
   m_Name: SpaceShip
   m_TagString: Untagged
@@ -465,6 +466,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58427816944057198
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1720105278947106}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!81 &81513067439610730
 AudioListener:
   m_ObjectHideFlags: 1
