@@ -308,6 +308,9 @@ MonoBehaviour:
   _buildingLayer:
     serializedVersion: 2
     m_Bits: 1024
+  _explosions:
+  - {fileID: 100004, guid: d19723ddbfb2d9040b190a54cd9066cb, type: 2}
+  - {fileID: 1500702769168166, guid: c14993d21d1075e4eb8cfa215025bdda, type: 2}
 --- !u!114 &114142384446664024
 MonoBehaviour:
   m_ObjectHideFlags: 1
