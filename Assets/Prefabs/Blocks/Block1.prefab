@@ -970,7 +970,7 @@ Transform:
   m_GameObject: {fileID: 1733182897457102}
   m_LocalRotation: {x: -0, y: 0.9914449, z: 0.13052624, w: 0}
   m_LocalPosition: {x: -1.5, y: -1.2800293, z: -0.13000488}
-  m_LocalScale: {x: 150.00012, y: 150.00003, z: 150.00009}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4776773455931426}
   - {fileID: 4059541057894258}
@@ -2414,6 +2414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _progressBar: {fileID: 0}
   p_enemy: {fileID: 1520211832217064, guid: 3db0c311bab6a8f49a8b2611181c7d7f, type: 2}
+  isConverted: 0
 --- !u!114 &114353268004535658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2427,6 +2428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _progressBar: {fileID: 0}
   p_enemy: {fileID: 1520211832217064, guid: 3db0c311bab6a8f49a8b2611181c7d7f, type: 2}
+  isConverted: 0
 --- !u!114 &114375834276318188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2454,6 +2456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _progressBar: {fileID: 0}
   p_enemy: {fileID: 1520211832217064, guid: 3db0c311bab6a8f49a8b2611181c7d7f, type: 2}
+  isConverted: 0
 --- !u!114 &114728128566216876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2467,3 +2470,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _progressBar: {fileID: 0}
   p_enemy: {fileID: 1520211832217064, guid: 3db0c311bab6a8f49a8b2611181c7d7f, type: 2}
+  isConverted: 0
