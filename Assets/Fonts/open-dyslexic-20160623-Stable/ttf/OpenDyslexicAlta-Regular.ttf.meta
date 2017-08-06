@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: a671947838967534caf32555b42c0f72
-timeCreated: 1501987554
+guid: 7bbf5f3d234e89d4abb2500963d39b34
+timeCreated: 1501987717
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
@@ -13,12 +13,8 @@ TrueTypeFontImporter:
   fontNames:
   - OpenDyslexicAlta
   fallbackFontReferences:
-  - {fileID: 12800000, guid: 22a8ec002f8ac484a9e350614936c641, type: 3}
-  - {fileID: 12800000, guid: 60b94072cd0cbb940b955c0336072139, type: 3}
-  - {fileID: 12800000, guid: 451e99f3160e6c74cb500e5853d43241, type: 3}
-  - {fileID: 12800000, guid: 45e80526a7ce28f4b94c97c32bcc553e, type: 3}
-  - {fileID: 12800000, guid: 96d983470da87114994952571f94c064, type: 3}
-  - {fileID: 12800000, guid: 56d5ef6dfb53915499ed347c1a5051d0, type: 3}
+  - {fileID: 12800000, guid: 6e004807c5b9ccf409454401c346ea34, type: 3}
+  - {fileID: 12800000, guid: 6e279bac54874934688a9b1675938375, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

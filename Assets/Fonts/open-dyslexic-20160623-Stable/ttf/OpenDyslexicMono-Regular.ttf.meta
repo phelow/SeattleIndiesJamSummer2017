@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: fabf8b0e07af2924dbcceaa690be309d
-timeCreated: 1501987554
+guid: 790e0cd88fc768d45a8bf27c2835fade
+timeCreated: 1501987716
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
@@ -13,7 +13,7 @@ TrueTypeFontImporter:
   fontNames:
   - OpenDyslexicMono
   fallbackFontReferences:
-  - {fileID: 12800000, guid: 89898a1305a6f634bbc57486fad01c6f, type: 3}
+  - {fileID: 12800000, guid: 7731e2a3819d1144c9955e1871d7dc4d, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

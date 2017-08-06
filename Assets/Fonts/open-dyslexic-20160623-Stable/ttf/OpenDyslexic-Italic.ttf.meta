@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7cce922fedc19fc4fbaea2bbeb68c179
-timeCreated: 1501987554
+guid: f0165fa8fe754bd4189a96836b0d5ce3
+timeCreated: 1501987717
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
@@ -13,7 +13,12 @@ TrueTypeFontImporter:
   fontNames:
   - OpenDyslexic
   fallbackFontReferences:
-  - {fileID: 12800000, guid: 65997c51ecfb6d4468f585b7465c458c, type: 3}
+  - {fileID: 12800000, guid: 073aeae093364714fac784b66fd03905, type: 3}
+  - {fileID: 12800000, guid: 78fb1e315e77da044bc5988bbd2d8e4d, type: 3}
+  - {fileID: 12800000, guid: 2bb57182878e3fc4da491f948479976c, type: 3}
+  - {fileID: 12800000, guid: d2ee4e38e8b8f3e4ba0334e55fd52bd4, type: 3}
+  - {fileID: 12800000, guid: bf1d42fbca81f6148bd278b011821ac2, type: 3}
+  - {fileID: 12800000, guid: 82a3551dadda6d24c9f3796e742092f5, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
