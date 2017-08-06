@@ -9,7 +9,7 @@ public class SmoothFollow : MonoBehaviour {
     float smoothTime = 0.3f;
     private Transform thisTransform;
     private Vector2 velocity;
-    float yOffset = 0.7f;
+    float yOffset = 0;
 
     public bool useSmoothing = false;
     void Start()
