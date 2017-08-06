@@ -1,10 +1,10 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
-guid: 6c3f33e142a8d4bfba0d8384099859b0
-timeCreated: 1501987102
+guid: a1be9a1639df44a1aa72b85b8b38307b
+timeCreated: 1501987103
 =======
-guid: 073aeae093364714fac784b66fd03905
-timeCreated: 1501987716
+guid: 89898a1305a6f634bbc57486fad01c6f
+timeCreated: 1501987554
 >>>>>>> f469f3c4a5d74281fd884dc313a63e9f3b3c07d1
 licenseType: Free
 TrueTypeFontImporter:
@@ -14,14 +14,12 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: OpenDyslexic
+  fontName: OpenDyslexicMono
   fontNames:
-  - OpenDyslexic
+  - OpenDyslexicMono
 <<<<<<< HEAD
   fallbackFontReferences:
-  - {fileID: 12800000, guid: 492f7d911467043f7b58f1fdc098a775, type: 3}
-  - {fileID: 12800000, guid: 25f1115377c1c4eea8e1b1edf297fbdd, type: 3}
-  - {fileID: 12800000, guid: 30df78e4310664fcc8c9659f96a9a836, type: 3}
+  - {fileID: 12800000, guid: 9c9547b2313624ee9b2fa0382a3e6296, type: 3}
 =======
   fallbackFontReferences: []
 >>>>>>> f469f3c4a5d74281fd884dc313a63e9f3b3c07d1

@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: ac9b040fc87b044f383bfc9414b18cc6
+timeCreated: 1501987103
+=======
 guid: ff78c1c58ec43834b8c4e09480dcf6fe
 timeCreated: 1501987717
+>>>>>>> f469f3c4a5d74281fd884dc313a63e9f3b3c07d1
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
@@ -13,6 +18,13 @@ TrueTypeFontImporter:
   fontNames:
   - OpenDyslexic
   fallbackFontReferences:
+<<<<<<< HEAD
+  - {fileID: 12800000, guid: 783e38e01c7254473b6014b39ee66820, type: 3}
+  - {fileID: 12800000, guid: 492f7d911467043f7b58f1fdc098a775, type: 3}
+  - {fileID: 12800000, guid: 6c3f33e142a8d4bfba0d8384099859b0, type: 3}
+  - {fileID: 12800000, guid: 25f1115377c1c4eea8e1b1edf297fbdd, type: 3}
+  - {fileID: 12800000, guid: 30df78e4310664fcc8c9659f96a9a836, type: 3}
+=======
   - {fileID: 12800000, guid: 073aeae093364714fac784b66fd03905, type: 3}
   - {fileID: 12800000, guid: 78fb1e315e77da044bc5988bbd2d8e4d, type: 3}
   - {fileID: 12800000, guid: 2bb57182878e3fc4da491f948479976c, type: 3}
@@ -20,6 +32,7 @@ TrueTypeFontImporter:
   - {fileID: 12800000, guid: f0165fa8fe754bd4189a96836b0d5ce3, type: 3}
   - {fileID: 12800000, guid: bf1d42fbca81f6148bd278b011821ac2, type: 3}
   - {fileID: 12800000, guid: 82a3551dadda6d24c9f3796e742092f5, type: 3}
+>>>>>>> f469f3c4a5d74281fd884dc313a63e9f3b3c07d1
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
