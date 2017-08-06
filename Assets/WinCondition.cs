@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 class WinCondition: MonoBehaviour
@@ -13,9 +15,12 @@ class WinCondition: MonoBehaviour
 
     public static WinCondition s_instance;
 
+    private List<BuildingSpawner> m_spawners;
+
     void Start()
     {
         s_instance = this;
+        m_spawners = FindObjectsOfType<BuildingSpawner>().ToList();
     }
 
     public void NewPersonChained()
@@ -37,6 +42,21 @@ class WinCondition: MonoBehaviour
 
     public void UpdateScore()
     {
+        float toFlip =Mathf.Ceil( m_spawners.Count * (_numberOfPeople / (1.0f * _numberToWin)));
+
+        foreach(BuildingSpawner spawner in m_spawners)
+        {
+            if (toFlip > 0.0f)
+            {
+                spawner.Convert(true);
+            }
+            else
+            {
+                break;
+            }
+            toFlip--;
+        }
+
         _progress.SetValue(_numberOfPeople, _numberToWin);
     }
 }

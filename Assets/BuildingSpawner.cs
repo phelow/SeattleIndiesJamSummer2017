@@ -18,14 +18,20 @@ public class BuildingSpawner : MonoBehaviour
 
     private bool _isConverted;
 
+    public void Convert(bool toConvert)
+    {
+        _isConverted = toConvert;
+    }
+
     public void Start()
     {
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(180, 0, 0), 1.0f);
         StartCoroutine(SpawnUnit());
     }
 
     public void Update()
     {
-        if (_isConverted)
+        if (!_isConverted)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(180,0,0),Time.deltaTime);
         }
@@ -82,15 +88,6 @@ public class BuildingSpawner : MonoBehaviour
         if (_progressBar != null)
         {
             _progressBar.SetValue(_fervor, c_maxFervor);
-        }
-
-        if (_fervor < 50)
-        {
-            _isConverted = false;
-        }
-        else
-        {
-            _isConverted = true;
         }
     }
 

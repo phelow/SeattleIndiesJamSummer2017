@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 87545f73d58ebfb41b57c4eaeaafcb8c
+timeCreated: 1501987554
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: OpenDyslexic
+  fontNames:
+  - OpenDyslexic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 65997c51ecfb6d4468f585b7465c458c, type: 3}
+  - {fileID: 12800000, guid: 7cce922fedc19fc4fbaea2bbeb68c179, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
