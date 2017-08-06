@@ -1407,6 +1407,11 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: 1}
   m_UseGraphicAlpha: 1
+--- !u!4 &694316693 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4027383313761394, guid: 7c5633de190fe7d4fbf58bdf9ed69b08,
+    type: 2}
+  m_PrefabInternal: {fileID: 1648929762}
 --- !u!1 &780477471
 GameObject:
   m_ObjectHideFlags: 0
@@ -1801,7 +1806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b514a9e1bc96b63479f5390f8b9d04b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1237284175}
+  target: {fileID: 694316693}
   useSmoothing: 0
 --- !u!1 &1217784076
 GameObject:
@@ -1944,11 +1949,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1217784076}
---- !u!50 &1237284173 stripped
-Rigidbody2D:
-  m_PrefabParentObject: {fileID: 50194920386908680, guid: 7c5633de190fe7d4fbf58bdf9ed69b08,
-    type: 2}
-  m_PrefabInternal: {fileID: 1648929762}
 --- !u!1 &1556365209
 GameObject:
   m_ObjectHideFlags: 0
