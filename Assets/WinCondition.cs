@@ -25,6 +25,9 @@ class WinCondition : MonoBehaviour
 
     private float _completionRatio;
 
+    public float maxZoom = -30;
+    public float minZoom = -40;
+
     void Start()
     {
         s_instance = this;
@@ -35,7 +38,10 @@ class WinCondition : MonoBehaviour
 
     private void Update()
     {
-        _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, Mathf.Lerp(8, 20, _completionRatio), Time.deltaTime);
+        float zPosition = Mathf.Lerp(_camera.transform.position.z, Mathf.Lerp(minZoom, maxZoom, _completionRatio), Time.deltaTime);
+        Vector3 position = _camera.transform.position;
+        position.z = zPosition;
+        _camera.transform.position = position;
     }
 
     public void NewPersonChained()

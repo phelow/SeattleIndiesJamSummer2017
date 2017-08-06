@@ -77,16 +77,14 @@ public class SpaceShipMovement : MonoBehaviour
         bool leftPressed = Input.GetMouseButton(0);
         bool rightPressed = Input.GetMouseButton(1);
 
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float distance = Vector2.Distance(transform.position, worldPos);
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 relativePosition = mousePosition - new Vector3(Screen.width / 2, Screen.height / 2);
+        Vector3 movement = new Vector3(relativePosition.x / 100, relativePosition.y / 100);
 
         if (Mathf.Abs(Input.GetAxis("Vertical")) > 0.01f || Mathf.Abs(Input.GetAxis("Horizontal")) > 0.01f)
         {
-            worldPos = new Vector3(Input.GetAxis("Horizontal") * 100.0f, Input.GetAxis("Vertical") * 100.0f, 0.0f);
+            movement = new Vector3(Input.GetAxis("Horizontal") * 100.0f, Input.GetAxis("Vertical") * 100.0f, 0.0f);
         }
-
-        Vector2 movement = (new Vector2(worldPos.x, worldPos.y) - new Vector2(transform.position.x, transform.position.y));
-
 
         //if outside the circle move
 
