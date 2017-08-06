@@ -17,6 +17,9 @@ class WinCondition: MonoBehaviour
 
     private List<BuildingSpawner> m_spawners;
 
+    public AudioClip newFollowerSound;
+    public AudioClip followerDiedSound;
+
     [SerializeField]
     private Camera _camera;
 
@@ -44,12 +47,16 @@ class WinCondition: MonoBehaviour
         {
             SceneManager.LoadScene("WinScreen");
         }
+
+        SoundSystem.s_soundSystem.PlaySound(newFollowerSound);
     }
 
     public void PersonDied()
     {
         _numberOfPeople--;
         UpdateScore();
+
+        SoundSystem.s_soundSystem.PlaySound(followerDiedSound);
     }
 
     public void UpdateScore()
