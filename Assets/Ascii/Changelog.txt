@@ -1,0 +1,14 @@
+Ascii 2.0.1
+--------------------------
+- Fix a bug with the shader path in mobile devices.
+
+Ascii 2.0
+--------------------------
+- New features and modes (see online documentation).
+- Complete refactoring (see online documentation).
+- Optimizations and small fixes.
+- Improvements in the editor.
+
+Ascii 1.0
+--------------------------
+- Initial release.

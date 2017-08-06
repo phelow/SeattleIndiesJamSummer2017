@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 10191c2b4c7b9d24d87bc50800d5a463
+timeCreated: 1501989300
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Cubellan
+  fontNames:
+  - Cubellan
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
