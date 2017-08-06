@@ -34,6 +34,11 @@ public class SpringyShackle : MonoBehaviour {
         spring.autoConfigureDistance = false;
         while (true)
         {
+            if(target == null || line == null)
+            {
+                Destroy(this.gameObject);
+            }
+
             line.points[0].pos = target.transform.position;
             line.points[0].width = .1f;
             line.points[1].pos = transform.position;

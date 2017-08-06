@@ -68,7 +68,7 @@ public class ProgressBarPro : MonoBehaviour {
         for (int i = 0; i < views.Length; i++) 
             views[i].NewChangeStarted(displayValue, m_value);
 
-        if (!gameObject.activeInHierarchy)
+        if (!gameObject || !gameObject.activeInHierarchy)
         {
             return;
         }

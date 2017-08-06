@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(DisplayString), typeof(ObjectUI))]
@@ -46,8 +47,10 @@ public class DialogController : MonoBehaviour
 	public Vector3 avgPosition
 	{
 		get{
-			//List<Vector3> positions = new List<Vector3>();
-			Vector3 sum = Vector3.zero;
+            participants = participants.Where(i => i != null).ToList();
+
+            //List<Vector3> positions = new List<Vector3>();
+            Vector3 sum = Vector3.zero;
 			for (int i = 0; i < participants.Count; i++) 
 			{
                 if(participants[i] == null)
