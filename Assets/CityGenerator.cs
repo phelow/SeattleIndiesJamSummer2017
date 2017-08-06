@@ -48,10 +48,14 @@ public class CityGenerator : MonoBehaviour
 
     void PlaceBlockAt(BlockFootprint block, int y, int x)
     {
-        int xRandom = (int)Random.Range(-blockSize, blockSize);
-        int yRandom = (int)Random.Range(-blockSize, blockSize);
+        int xRandom = (int)Random.Range(-blockSize/2, blockSize/2);
+        int yRandom = (int)Random.Range(-blockSize/2, blockSize/2);
 
         Vector3 position = new Vector3(x * blockSize, y * blockSize, 0);
+
+        position.x = Mathf.Clamp(position.x + xRandom, 0.0f, xMapSize*blockSize - block.footprintRows[0].Length*blockSize);
+        position.y = Mathf.Clamp(position.y + yRandom, 0.0f, yMapSize*blockSize - block.footprintRows[0].Length*blockSize);
+
         Vector3 globalPosition = transform.TransformPoint(position) + new Vector3(xRandom, yRandom, 0);
         Instantiate<BlockFootprint>(block, globalPosition, Quaternion.identity, null);
 
@@ -89,11 +93,21 @@ public class CityGenerator : MonoBehaviour
 
     bool IsSurroundingAreaClear(int yCoord, int xCoord)
     {
+        if (yCoord < 0 || yCoord >= yMapSize || xCoord < 0 || xCoord >= xMapSize)
+        {
+            return false;
+        }
+
         for (int y = yCoord - 1; y <= yCoord + 1; y++)
         {
             for (int x = xCoord - 1; x <= xCoord + 1; x++)
             {
-                if (y < 0 || y >= yMapSize || x < 0 || x >= xMapSize || isBlockOccupied[y, x])
+                if (y < 0 || y >= yMapSize || x < 0 || x >= xMapSize)
+                {
+                    continue;
+                }
+
+                if (isBlockOccupied[y, x])
                 {
                     return false;
                 }
