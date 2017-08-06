@@ -262,6 +262,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4813105888834814}
   - component: {fileID: 61086458445249004}
+  - component: {fileID: 114182111502264868}
+  - component: {fileID: 50158444429819988}
   m_Layer: 10
   m_Name: Block
   m_TagString: Untagged
@@ -993,6 +995,26 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1259183804002246}
   m_Mesh: {fileID: 4300000, guid: 800f37b7ca767084d9fcf4fb5c87a629, type: 3}
+--- !u!50 &50158444429819988
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1994637527004336}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 1
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 3
 --- !u!61 &61086458445249004
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1099,6 +1121,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footprintRows:
   - 1
+--- !u!114 &114182111502264868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1994637527004336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41edda764b124644bbc2a7b369149265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wobble: 1
+  _rigidBody: {fileID: 50158444429819988}
 --- !u!114 &114434822030978856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1110,4 +1145,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655bdb5d2d598f64eb0baca551b30975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _progressBar: {fileID: 0}
   p_enemy: {fileID: 1520211832217064, guid: 3db0c311bab6a8f49a8b2611181c7d7f, type: 2}
