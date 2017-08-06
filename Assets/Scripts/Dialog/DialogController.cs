@@ -15,7 +15,7 @@ public class DialogController : MonoBehaviour
 		if( prefab == null )
 			prefab = Resources.Load<GameObject>( prefabLocation );
 		if( canvas == null )
-			canvas = FindObjectOfType<Canvas>().transform;
+			canvas = GameObject.Find("MainCanvas").transform;
 
 		//TODO create script for obj positions
 
@@ -50,6 +50,11 @@ public class DialogController : MonoBehaviour
 			Vector3 sum = Vector3.zero;
 			for (int i = 0; i < participants.Count; i++) 
 			{
+                if(participants[i] == null)
+                {
+                    continue;
+                }
+
 				sum += participants[i].transform.position;
 			}
 			return sum / participants.Count;
@@ -60,7 +65,7 @@ public class DialogController : MonoBehaviour
 	private DialogParticipant _talking;
 	public DialogParticipant talking
 	{
-		get{ return _talking; }
+		get{return _talking; }
 		set{
 			_talking = value;
 		}
@@ -68,6 +73,10 @@ public class DialogController : MonoBehaviour
 
 	public void Add( DialogParticipant newParticipant )
 	{
+        if(participants.Count > 4)
+        {
+            return;
+        }
 		participants.Add( newParticipant );
 		newParticipant.conversation = this;
 	}
@@ -81,13 +90,19 @@ public class DialogController : MonoBehaviour
 			{
 				this.table++;
 
-				if( this.table < DialogDefs.singleton.tables.Count )
-				{
-					this.talking = (table % 2 == 0) ? participants[0] : participants[1]; //participants[ UnityEngine.Random.Range(0, participants.Count) ];
-					this.display.StartDisplay( DialogDefs.singleton.SelectRandom(table).text );
-				}
-				else
-					Debug.Log("end");
+                if(this.table >= DialogDefs.singleton.tables.Count)
+                {
+                    this.table = 0;
+                }
+                if (this.table < DialogDefs.singleton.tables.Count)
+                {
+                    this.talking = (table % 2 == 0) ? participants[0] : participants[1]; //participants[ UnityEngine.Random.Range(0, participants.Count) ];
+                    this.display.StartDisplay(DialogDefs.singleton.SelectRandom(table).text);
+                }
+                else
+                {
+                    Debug.Log("end");
+                }
 			};
 		}
 	}
