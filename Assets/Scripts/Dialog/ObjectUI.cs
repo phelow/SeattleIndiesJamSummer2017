@@ -37,12 +37,13 @@ public class ObjectUI : MonoBehaviour
 		float max = bounds[3].x - padding;
 
 
-	//	Debug.Log( min );
-	//	Debug.Log( max );
+        //	Debug.Log( min );
+        //	Debug.Log( max );
 
+        float x = 0.0f ;
         try
         {
-            float x = Mathf.Clamp(Camera.main.WorldToScreenPoint(owner.talking.transform.position).x, min, max);
+            x = Mathf.Clamp(Camera.main.WorldToScreenPoint(owner.talking.transform.position).x, min, max);
 
         }
         catch
