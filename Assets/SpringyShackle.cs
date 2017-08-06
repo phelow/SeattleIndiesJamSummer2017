@@ -14,7 +14,6 @@ public class SpringyShackle : MonoBehaviour {
         {
             line.points = new List<Line2D.Line2DPoint>();
             line.points.Add(new Line2D.Line2DPoint(new Vector3(99999.0f, 99999.0f), .1f, Color.black));
-
         }
     }
 

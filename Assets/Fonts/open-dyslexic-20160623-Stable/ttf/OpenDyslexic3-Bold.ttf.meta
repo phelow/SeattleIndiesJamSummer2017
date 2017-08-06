@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f9e71968867404c7cb4d71b2cf3a0ca9
 timeCreated: 1501987103
+=======
+guid: 0a57f5694eed2f24a923d01f3540c940
+timeCreated: 1501987716
+>>>>>>> f469f3c4a5d74281fd884dc313a63e9f3b3c07d1
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
@@ -12,8 +17,12 @@ TrueTypeFontImporter:
   fontName: OpenDyslexic3
   fontNames:
   - OpenDyslexic3
+<<<<<<< HEAD
   fallbackFontReferences:
   - {fileID: 12800000, guid: 0060540a597584c6ca7b79e8317ec884, type: 3}
+=======
+  fallbackFontReferences: []
+>>>>>>> f469f3c4a5d74281fd884dc313a63e9f3b3c07d1
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
