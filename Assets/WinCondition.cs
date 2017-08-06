@@ -21,6 +21,7 @@ class WinCondition: MonoBehaviour
     {
         s_instance = this;
         m_spawners = FindObjectsOfType<BuildingSpawner>().ToList();
+        m_spawners.Shuffle();
     }
 
     public void NewPersonChained()
