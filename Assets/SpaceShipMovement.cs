@@ -78,8 +78,6 @@ public class SpaceShipMovement : MonoBehaviour
             _charging = false;
             float movementForce = _movementForce * (distance / 2);
             _rigidbody.AddForce(movement.normalized * movementForce * Time.deltaTime);
-             
-            return;
         }
 
 

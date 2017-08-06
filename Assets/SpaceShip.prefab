@@ -142,7 +142,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1720105278947106}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalPosition: {x: 0, y: 1, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4312291756885482}
@@ -351,7 +351,7 @@ MonoBehaviour:
   image: {fileID: 114480008474783452}
   hideOnEmpty: 1
   useDiscreteSteps: 1
-  numSteps: 50
+  numSteps: 100
 --- !u!114 &114480008474783452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -424,9 +424,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   flashOnGain: 1
-  gainColor: {r: 1, g: 0.7036657, b: 0.88706124, a: 1}
+  gainColor: {r: 1, g: 0.39705884, b: 0.75882375, a: 1}
   flashOnLoss: 1
-  lossColor: {r: 1, g: 0.7019608, b: 0.8862746, a: 1}
+  lossColor: {r: 1, g: 0.39705884, b: 0.75882375, a: 1}
   flashTime: 0.2
 --- !u!114 &114604873307071874
 MonoBehaviour:
