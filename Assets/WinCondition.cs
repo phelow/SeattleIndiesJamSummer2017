@@ -32,7 +32,7 @@ class WinCondition: MonoBehaviour
 
     private void Update()
     {
-        _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, Mathf.Lerp(5, 20, _completionRatio), Time.deltaTime);
+        _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, Mathf.Lerp(8, 20, _completionRatio), Time.deltaTime);
     }
 
     public void NewPersonChained()
