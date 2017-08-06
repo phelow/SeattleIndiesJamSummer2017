@@ -88,7 +88,7 @@ public class Movement : MonoBehaviour
         _animator.SetFloat("Speed", rb.velocity.magnitude);
         float angle = 180 + Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
         Quaternion quat = Quaternion.AngleAxis(angle, new Vector3(0,0,1));
-        transform.rotation = quat;
+        transform.rotation = Quaternion.Lerp(transform.rotation,quat,Time.deltaTime);
     }
 
     public Vector3 GetNewDirection()
