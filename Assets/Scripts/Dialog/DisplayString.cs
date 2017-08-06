@@ -18,6 +18,7 @@ public class DisplayString : MonoBehaviour
 	}
 
 	public float characterDelay = 0.1f;
+	public float msgDelay = 1.0f;
 	private string _fullText = "Seattle Indies Jam August 2017 ";
 	public string text
 	{
@@ -53,9 +54,10 @@ public class DisplayString : MonoBehaviour
 			DisplayPartial( _fullText, charIndex );
 
 			yield return new WaitForSeconds( characterDelay );
+
 		}
 
-		yield return new WaitForSeconds( characterDelay );
+		yield return new WaitForSeconds( msgDelay );
 
 		if( onComplete != null )
 			onComplete();

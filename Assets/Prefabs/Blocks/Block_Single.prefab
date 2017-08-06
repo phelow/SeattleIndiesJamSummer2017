@@ -1110,4 +1110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655bdb5d2d598f64eb0baca551b30975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _progressBar: {fileID: 0}
   p_enemy: {fileID: 1520211832217064, guid: 3db0c311bab6a8f49a8b2611181c7d7f, type: 2}

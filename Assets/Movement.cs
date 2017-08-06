@@ -8,8 +8,8 @@ public class Movement : MonoBehaviour
 
     private Vector3 targetPosition;
 
-    private float _maxTime = 10.0f;
-    private float _timeLeft = 10.0f;
+    private float _maxTime = 15.0f;
+    private float _timeLeft = 15.0f;
 
     [SerializeField]
     private ProgressBarPro _timeBar;
@@ -28,11 +28,20 @@ public class Movement : MonoBehaviour
 
     private GameObject _attached;
 
+    [SerializeField]
+    private List<GameObject> _explosions;
+
     void Start()
     {
         bucket = this.GetComponent<FervorBucket>();
         StartCoroutine(TickDown());
         StartCoroutine(MoveCharacter());
+
+        /*
+        _explosions = new GameObject[2];
+        _explosions[0] = Resources.Load<GameObject>("Explosions/PL Electric Bolt 02");
+        _explosions[1] = Resources.Load<GameObject>("Explosions/PL Dark 10");
+        */
     }
 
     public void SetAttached(GameObject go)
@@ -50,13 +59,19 @@ public class Movement : MonoBehaviour
                 _timeLeft--;
                 if(_timeLeft == 0)
                 {
-                    Destroy(this.gameObject);
+                    StartCoroutine(ExplosionDestroy());
+                    //Destroy(this.gameObject);
                 }
                 _timeBar.SetValue(_timeLeft, _maxTime);
             }
 
             yield return new WaitForSeconds(1.0f);
         }
+    }
+
+    void OnDestroy()
+    {
+        WinCondition.s_instance.PersonDied();
     }
 
     private IEnumerator MoveCharacter()
@@ -88,5 +103,28 @@ public class Movement : MonoBehaviour
         }
 
         return randomDirection;
+    }
+
+    private IEnumerator ExplosionDestroy()
+    {
+        Vector3 position = this.gameObject.transform.position;
+        Quaternion rotation = this.gameObject.transform.rotation;
+
+        GameObject explosion1 = GameObject.Instantiate(_explosions[0], position, rotation, this.transform);
+
+        yield return new WaitForSeconds(1.0f);
+
+        position = this.gameObject.transform.position;
+        rotation = this.gameObject.transform.rotation;
+
+        //explosion1.GetComponent<ParticleSystem>().Stop();
+        GameObject explosion2 = GameObject.Instantiate(_explosions[1], position, rotation, null);
+
+        
+        Destroy(this.gameObject);
+
+        //this.gameObject.SetActive(false);
+        //explosion2.transform.parent = this.transform;
+
     }
 }
