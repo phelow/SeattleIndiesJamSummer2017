@@ -31,10 +31,13 @@ public class DialogParticipant : MonoBehaviour
 			if( other.inConversation == true )
 			{
 				//other.conversation.Add( this );
+
+				//AudioHelper.PlayClipAtPoint( collisionAudio, transform.position, 0.5f, SoundType.Effect, transform );
 			}
 			else
 			{
 				DialogController.Create( new DialogParticipant[]{ this, other } );
+				//AudioHelper.PlayClipAtPoint( conversationJoin, transform.position, 0.5f, SoundType.Effect, transform );
 			}
 
 		}

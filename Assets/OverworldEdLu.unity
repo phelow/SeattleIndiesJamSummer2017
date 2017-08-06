@@ -2402,6 +2402,7 @@ MonoBehaviour:
   _conversionRadius: 2.9538345
   _rigidbody: {fileID: 1237284173}
   _movementForce: 1000
+  _maximumMovementForce: 5000
   p_fervorGoo: {fileID: 1672055120859982, guid: b8af578ce29750046b275d06c6b4e757,
     type: 2}
   p_harvestGoo: {fileID: 1671138282552360, guid: 1729987bc25da6048865d2666761046a,

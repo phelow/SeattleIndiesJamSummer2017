@@ -1132,6 +1132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversation: {fileID: 0}
+  conversationJoin: {fileID: 8300000, guid: 7a1f39b3317666a47b086fe2378bf489, type: 3}
+  collisionAudio: {fileID: 8300000, guid: abaf70bab485cb34eba8a11ca8a67531, type: 3}
 --- !u!114 &114142384446664024
 MonoBehaviour:
   m_ObjectHideFlags: 1
