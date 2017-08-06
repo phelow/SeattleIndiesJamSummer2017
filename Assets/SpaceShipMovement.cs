@@ -57,6 +57,10 @@ public class SpaceShipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float angle = 180 + Mathf.Atan2(_rigidbody.velocity.y, _rigidbody.velocity.x) * Mathf.Rad2Deg;
+        Quaternion quat = Quaternion.AngleAxis(angle, new Vector3(0, 0, 1));
+        transform.rotation = Quaternion.Lerp(transform.rotation, quat, Time.deltaTime);
+
         bool leftPressed = Input.GetMouseButton(0);
         bool rightPressed = Input.GetMouseButton(1);
 
@@ -79,7 +83,6 @@ public class SpaceShipMovement : MonoBehaviour
             float movementForce = _movementForce * (distance / 2);
             _rigidbody.AddForce(movement.normalized * movementForce * Time.deltaTime);
              
-            return;
         }
 
 
