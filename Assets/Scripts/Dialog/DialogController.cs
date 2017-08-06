@@ -97,7 +97,6 @@ public class DialogController : MonoBehaviour
 			{
 				this.table++;
 
-<<<<<<< HEAD
                 if (participants.Count < 2)
                 {
                     --dialogCount;
@@ -113,15 +112,6 @@ public class DialogController : MonoBehaviour
 
                 --dialogCount;
                 return false;
-=======
-				if( this.table < DialogDefs.singleton.tables.Count )
-				{
-					this.talking = (table % 2 == 0) ? participants[0] : participants[1]; //participants[ UnityEngine.Random.Range(0, participants.Count) ];
-					this.display.StartDisplay( DialogDefs.singleton.SelectRandom(table).text );
-				}
-				else
-					Debug.Log("end");
->>>>>>> b24a571... Stuff
 			};
 		}
 	}
