@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMesh: {fileID: 114466761727858250}
   characterDelay: 0
-  msgDelay: 3
+  msgDelay: 1
   charIndex: 0
 --- !u!114 &114401824058531826
 MonoBehaviour:
@@ -96,7 +96,7 @@ MonoBehaviour:
   offset: {x: 0, y: 85, z: 0}
   padding: 42
   speechTriangle: {fileID: 224473712188573084}
-  triangleHeightOffset: -22
+  triangleHeightOffset: -55
 --- !u!114 &114466761727858250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,8 +143,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -300,19 +300,19 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434373146559750}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 224473712188573084}
   - {fileID: 224918423030669368}
+  - {fileID: 224473712188573084}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -599.9, y: 222.4}
-  m_SizeDelta: {x: 272.2, y: 119.1}
+  m_AnchoredPosition: {x: -0.000005722046, y: 222.4}
+  m_SizeDelta: {x: 338.5, y: 148}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!224 &224473712188573084
 RectTransform:
@@ -325,12 +325,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224436694119612406}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -30, y: -22.958}
-  m_SizeDelta: {x: 45.8, y: 45.778}
+  m_AnchoredPosition: {x: -125.5, y: -55}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!224 &224918423030669368
 RectTransform:
@@ -343,7 +343,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224436694119612406}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

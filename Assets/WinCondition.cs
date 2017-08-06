@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-class WinCondition: MonoBehaviour
+class WinCondition : MonoBehaviour
 {
     private int _numberOfPeople = 0;
 
@@ -42,7 +42,7 @@ class WinCondition: MonoBehaviour
     {
         _numberOfPeople++;
         UpdateScore();
-        
+
         if (_numberOfPeople >= _numberToWin)
         {
             SceneManager.LoadScene("WinScreen");
@@ -62,10 +62,57 @@ class WinCondition: MonoBehaviour
     public void UpdateScore()
     {
         float completionRatio = (_numberOfPeople / (1.0f * _numberToWin));
-        float toFlip = Mathf.Ceil( m_spawners.Count * completionRatio);
+        float toFlip = Mathf.Ceil(m_spawners.Count * completionRatio);
         _completionRatio = completionRatio;
 
-        foreach (BuildingSpawner spawner in m_spawners)
+        List<BuildingSpawner> orderedBuildingsToConvert = new List<BuildingSpawner>();
+        List<BuildingSpawner> buildingsLeft = new List<BuildingSpawner>();
+
+        int numBuildingsConverted = 0;
+
+        if (this == null) return;
+
+        Vector3 centerPos = this.transform.position;
+
+
+        foreach (BuildingSpawner thisBuilding in m_spawners)
+        {
+
+            if (thisBuilding == null) break;
+            Vector3 thisBuildingPos = thisBuilding.transform.position;
+            float thisBuildingDistance = Vector3.Distance(thisBuildingPos, centerPos);
+
+            if (thisBuilding.isConverted)
+            {
+                numBuildingsConverted++;
+            }
+            else
+            {
+                if (orderedBuildingsToConvert.Count == 0) orderedBuildingsToConvert.Add(thisBuilding);
+                else
+                {
+                    int i = 0;
+                    foreach (BuildingSpawner refBuilding in orderedBuildingsToConvert)
+                    {
+                        Vector3 refBuildingPos = refBuilding.transform.position;
+                        float refBuildingDistance = Vector3.Distance(refBuildingPos, centerPos);
+
+
+                        if (thisBuildingDistance <= refBuildingDistance)
+                        {
+                            orderedBuildingsToConvert.Insert(i, thisBuilding);
+                            break;
+                        }
+
+                        i++;
+                    }
+                }
+            }
+        }
+
+        toFlip -= numBuildingsConverted;
+
+        foreach (BuildingSpawner spawner in orderedBuildingsToConvert)
         {
             if (toFlip > 0.0f)
             {

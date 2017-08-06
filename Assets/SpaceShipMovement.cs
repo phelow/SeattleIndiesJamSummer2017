@@ -17,6 +17,9 @@ public class SpaceShipMovement : MonoBehaviour
     private float _maximumMovementForce = 5000.0f;
 
     [SerializeField]
+    private Transform _model;
+
+    [SerializeField]
     private GameObject p_fervorGoo;
 
     [SerializeField]
@@ -35,6 +38,9 @@ public class SpaceShipMovement : MonoBehaviour
     private bool _charging = false;
 
     public static SpaceShipMovement s_instance;
+
+    float roll = 0;
+    float targetRoll = 0;
 
     // Use this for initialization
     void Start()
@@ -57,9 +63,16 @@ public class SpaceShipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float prevAngle = transform.rotation.eulerAngles.z;
         float angle = 180 + Mathf.Atan2(_rigidbody.velocity.y, _rigidbody.velocity.x) * Mathf.Rad2Deg;
         Quaternion quat = Quaternion.AngleAxis(angle, new Vector3(0, 0, 1));
         transform.rotation = Quaternion.Lerp(transform.rotation, quat, Time.deltaTime);
+
+        float angleDiff = Mathf.DeltaAngle(angle, prevAngle);
+        targetRoll = Mathf.Clamp(angleDiff, -80, 80);
+
+        roll = Mathf.Lerp(roll, targetRoll, Time.deltaTime);
+        _model.localRotation = Quaternion.AngleAxis(roll, new Vector3(1, 0, 0));
 
         bool leftPressed = Input.GetMouseButton(0);
         bool rightPressed = Input.GetMouseButton(1);
