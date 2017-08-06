@@ -8,8 +8,8 @@ public class Movement : MonoBehaviour
 
     private Vector3 targetPosition;
 
-    private float _maxTime = 10.0f;
-    private float _timeLeft = 10.0f;
+    private float _maxTime = 15.0f;
+    private float _timeLeft = 15.0f;
 
     [SerializeField]
     private ProgressBarPro _timeBar;
@@ -57,6 +57,11 @@ public class Movement : MonoBehaviour
 
             yield return new WaitForSeconds(1.0f);
         }
+    }
+
+    void OnDestroy()
+    {
+        WinCondition.s_instance.PersonDied();
     }
 
     private IEnumerator MoveCharacter()
