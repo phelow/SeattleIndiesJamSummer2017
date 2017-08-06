@@ -35,7 +35,7 @@ public class DisplayString : MonoBehaviour
 	private Coroutine routine;
 
 	public int charIndex = 0;
-	public Action onComplete = null;
+	public Func<bool> onComplete = null;
 
 	public void StartDisplay( string text )
 	{
@@ -60,7 +60,12 @@ public class DisplayString : MonoBehaviour
 		yield return new WaitForSeconds( msgDelay );
 
 		if( onComplete != null )
-			onComplete();
+        {
+			if (!onComplete())
+            {
+                Destroy(this.gameObject);
+            }
+        }
 	}
 
 	void DisplayPartial( string full, int charCount )

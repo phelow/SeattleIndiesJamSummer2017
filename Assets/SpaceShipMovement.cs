@@ -14,6 +14,9 @@ public class SpaceShipMovement : MonoBehaviour
     private float _movementForce = 100.0f;
 
     [SerializeField]
+    private float _maximumMovementForce = 5000.0f;
+
+    [SerializeField]
     private GameObject p_fervorGoo;
 
     [SerializeField]
@@ -73,39 +76,40 @@ public class SpaceShipMovement : MonoBehaviour
         if (/*(leftPressed || rightPressed) && */_conversionRadius < distance)
         {
             _charging = false;
-            _rigidbody.AddForce(movement.normalized * _movementForce * (distance / 2) * Time.deltaTime);
+            float movementForce = _movementForce * (distance / 2);
+            _rigidbody.AddForce(movement.normalized * movementForce * Time.deltaTime);
              
             return;
         }
 
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, movement, _conversionRadius, _ignoreBuildings);
+        RaycastHit2D [] hit = Physics2D.CircleCastAll(transform.position, _conversionRadius, Vector2.up,1.0f,_ignoreBuildings);
         Debug.DrawLine(transform.position, movement, Color.red);
-        if (hit == null || hit.transform == null || hit.transform.GetComponent<Movement>() == null)
+        if (hit.Length == 0)
         {
             return;
         }
 
-        Line2D.Line2DRenderer renderer = null;
 
-        if(!(leftPressed || rightPressed))
+        foreach (RaycastHit2D h in hit)
         {
-            _charging = false;
-            return;
-        }
+            FervorBucket bucket = h.collider.transform.GetComponent<FervorBucket>();
 
+            if(bucket == null)
+            {
+                continue;
+            }
 
-        FervorBucket bucket = hit.collider.transform.GetComponent<FervorBucket>();
+            if (!bucket.IsConverted())
+            {
+                _charging = true;
+                //if inside the circle convert
+                bucket.Convert();
 
-        if (leftPressed && (!bucket.IsConverted()))
-        {
-            _charging = true;
-            //if inside the circle convert
-            bucket.Convert();
+                bucket.gameObject.GetComponent<SpringyShackle>().StartShackling(this.gameObject);
 
-            bucket.gameObject.GetComponent<SpringyShackle>().StartShackling(this.gameObject);
-            
-            WinCondition.s_instance.NewPersonChained();
+                WinCondition.s_instance.NewPersonChained();
+            }
         }
     }
 
