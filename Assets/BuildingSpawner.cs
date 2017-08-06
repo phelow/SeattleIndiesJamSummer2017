@@ -16,11 +16,11 @@ public class BuildingSpawner : MonoBehaviour
     [SerializeField]
     private GameObject p_enemy;
 
-    private bool _isConverted;
+    public bool isConverted;
 
     public void Convert(bool toConvert)
     {
-        _isConverted = toConvert;
+        isConverted = toConvert;
     }
 
     public void Start()
@@ -31,7 +31,7 @@ public class BuildingSpawner : MonoBehaviour
 
     public void Update()
     {
-        if (!_isConverted)
+        if (!isConverted)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(180,0,0),Time.deltaTime);
         }
