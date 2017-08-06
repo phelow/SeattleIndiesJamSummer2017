@@ -23,7 +23,7 @@ public class SpringyShackle : MonoBehaviour {
 
         SpringJoint2D spring = target.gameObject.AddComponent<SpringJoint2D>();
         spring.connectedBody = this.GetComponent<Rigidbody2D>();
-        spring.anchor = transform.position - target.transform.position; 
+        spring.anchor = transform.position - target.transform.position;
         spring.autoConfigureDistance = false;
         while (true)
         {
