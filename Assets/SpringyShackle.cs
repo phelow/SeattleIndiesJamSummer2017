@@ -3,20 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpringyShackle : MonoBehaviour {
-    [SerializeField]
     private Line2D.Line2DRenderer line;
 
+    [SerializeField]
+    private Line2D.Line2DRenderer p_line;
+
 	// Use this for initialization
-
-    public void Update()
-    {
-        if(line.points == null || line.points.Count < 2)
-        {
-            line.points = new List<Line2D.Line2DPoint>();
-            line.points.Add(new Line2D.Line2DPoint(new Vector3(99999.0f, 99999.0f), .1f, Color.black));
-        }
-    }
-
     public void StartShackling(GameObject target)
     {
         StartCoroutine(LineRoutine(target));
@@ -24,6 +16,8 @@ public class SpringyShackle : MonoBehaviour {
 
     // Update is called once per frame
     private IEnumerator LineRoutine (GameObject target) {
+        line = GameObject.Instantiate(p_line);
+
         line.points = new List<Line2D.Line2DPoint>();
         line.points.Add(new Line2D.Line2DPoint());
         line.points.Add(new Line2D.Line2DPoint());
@@ -34,6 +28,11 @@ public class SpringyShackle : MonoBehaviour {
         spring.autoConfigureDistance = false;
         while (true)
         {
+            if(target == null || line == null)
+            {
+                Destroy(this.gameObject);
+            }
+
             line.points[0].pos = target.transform.position;
             line.points[0].width = .1f;
             line.points[1].pos = transform.position;

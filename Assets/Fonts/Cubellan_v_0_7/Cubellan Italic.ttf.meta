@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 17082ea8a73314228acbebea3843e147
 timeCreated: 1501990445
+=======
+guid: f057f5eed8fa8e94ba2a54a7503a3aa7
+timeCreated: 1501989348
+>>>>>>> 7dafa37186ae9ca2df99554eca673c4a287fe0c5
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 4
@@ -13,7 +18,12 @@ TrueTypeFontImporter:
   fontNames:
   - Cubellan
   fallbackFontReferences:
+<<<<<<< HEAD
   - {fileID: 12800000, guid: 047e709e268074164b2129dca68c19d4, type: 3}
+=======
+  - {fileID: 12800000, guid: 54394f179b3a23a448d2b09a40f26e32, type: 3}
+  - {fileID: 12800000, guid: 6a05354df2fbc1a4d8f01566d14c8945, type: 3}
+>>>>>>> 7dafa37186ae9ca2df99554eca673c4a287fe0c5
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
