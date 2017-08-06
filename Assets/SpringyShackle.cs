@@ -26,9 +26,11 @@ public class SpringyShackle : MonoBehaviour {
         spring.connectedBody = this.GetComponent<Rigidbody2D>();
         spring.anchor = transform.position - target.transform.position;
         spring.autoConfigureDistance = false;
+        spring.distance = 2.0f;
+        spring.frequency = 1.0f;
         while (true)
         {
-            if(target == null || line == null)
+            if(target == null || target.transform == null || target.transform.position == null || line == null)
             {
                 Destroy(this.gameObject);
             }
