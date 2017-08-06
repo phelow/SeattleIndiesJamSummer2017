@@ -40,6 +40,11 @@ public class ObjectUI : MonoBehaviour
 	//	Debug.Log( min );
 	//	Debug.Log( max );
 
+        if(owner == null || owner.talking == null)
+        {
+            Destroy(this.gameObject);
+        }
+
 		float x = Mathf.Clamp( Camera.main.WorldToScreenPoint( owner.talking.transform.position ).x, min, max );
 
 //		Debug.Log( x );

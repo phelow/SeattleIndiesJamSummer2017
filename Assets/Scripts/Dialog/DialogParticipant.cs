@@ -17,8 +17,13 @@ public class DialogParticipant : MonoBehaviour
 			return;
 
 		DialogParticipant other = col.gameObject.GetComponent<DialogParticipant>();
-		if( other != null )
-		{
+        if (other != null)
+        {
+
+            if (!other.GetComponent<FervorBucket>().IsConverted() && !this.GetComponent<FervorBucket>().IsConverted())
+            {
+                return;
+            }
 
 			if( other.inConversation == true )
 			{
