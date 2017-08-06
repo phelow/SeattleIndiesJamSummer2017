@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 3f26b47a0db444bae821fcaba6f8ce00
+timeCreated: 1501987102
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: OpenDyslexicAlta
+  fontNames:
+  - OpenDyslexicAlta
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2cc912b636a0c424abf9e6b47b54b836, type: 3}
+  - {fileID: 12800000, guid: 3721c8eb68b334941a139dab854298e7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
