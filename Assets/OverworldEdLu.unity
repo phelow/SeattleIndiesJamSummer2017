@@ -1997,11 +1997,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: 1}
   m_UseGraphicAlpha: 1
---- !u!4 &694316693 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4027383313761394, guid: 7c5633de190fe7d4fbf58bdf9ed69b08,
-    type: 2}
-  m_PrefabInternal: {fileID: 1648929762}
 --- !u!1 &780477471
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,25 +2418,19 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!231 &1125447073
-SpringJoint2D:
+--- !u!114 &1125447073
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1125447067}
   m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 1237284173}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_AutoConfigureDistance: 1
-  m_Distance: 1
-  m_DampingRatio: 0
-  m_Frequency: 10
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b514a9e1bc96b63479f5390f8b9d04b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1237284175}
+  useSmoothing: 0
 --- !u!50 &1125447074
 Rigidbody2D:
   serializedVersion: 4
@@ -2653,6 +2642,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _numberToWin: 100
   _progress: {fileID: 780477474}
+  newFollowerSound: {fileID: 0}
+  followerDiedSound: {fileID: 0}
   _camera: {fileID: 1125447072}
 --- !u!50 &1237284173
 Rigidbody2D:
