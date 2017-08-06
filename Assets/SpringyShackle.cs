@@ -34,11 +34,17 @@ public class SpringyShackle : MonoBehaviour {
             {
                 Destroy(this.gameObject);
             }
+            try
+            {
+                line.points[0].pos = target.transform.position;
+                line.points[0].width = .1f;
+                line.points[1].pos = transform.position;
+                line.points[1].width = .1f;
+            }
+            catch
+            {
 
-            line.points[0].pos = target.transform.position;
-            line.points[0].width = .1f;
-            line.points[1].pos = transform.position;
-            line.points[1].width = .1f;
+            }
             yield return new WaitForFixedUpdate();
         }
     }
