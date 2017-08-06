@@ -28,9 +28,6 @@ public class Movement : MonoBehaviour
 
     private GameObject _attached;
 
-    [SerializeField]
-    private List<GameObject> _explosions;
-
     void Start()
     {
         bucket = this.GetComponent<FervorBucket>();
@@ -59,8 +56,7 @@ public class Movement : MonoBehaviour
                 _timeLeft--;
                 if(_timeLeft == 0)
                 {
-                    StartCoroutine(ExplosionDestroy());
-                    //Destroy(this.gameObject);
+                    Destroy(this.gameObject);
                 }
                 _timeBar.SetValue(_timeLeft, _maxTime);
             }
@@ -88,7 +84,7 @@ public class Movement : MonoBehaviour
         _animator.SetFloat("Speed", rb.velocity.magnitude);
         float angle = 180 + Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
         Quaternion quat = Quaternion.AngleAxis(angle, new Vector3(0,0,1));
-        transform.rotation = quat;
+        transform.rotation = Quaternion.Lerp(transform.rotation,quat,Time.deltaTime);
     }
 
     public Vector3 GetNewDirection()
@@ -103,28 +99,5 @@ public class Movement : MonoBehaviour
         }
 
         return randomDirection;
-    }
-
-    private IEnumerator ExplosionDestroy()
-    {
-        Vector3 position = this.gameObject.transform.position;
-        Quaternion rotation = this.gameObject.transform.rotation;
-
-        GameObject explosion1 = GameObject.Instantiate(_explosions[0], position, rotation, this.transform);
-
-        yield return new WaitForSeconds(1.0f);
-
-        position = this.gameObject.transform.position;
-        rotation = this.gameObject.transform.rotation;
-
-        //explosion1.GetComponent<ParticleSystem>().Stop();
-        GameObject explosion2 = GameObject.Instantiate(_explosions[1], position, rotation, null);
-
-        
-        Destroy(this.gameObject);
-
-        //this.gameObject.SetActive(false);
-        //explosion2.transform.parent = this.transform;
-
     }
 }

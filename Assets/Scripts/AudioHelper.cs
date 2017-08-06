@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using System.Linq;
 
 ///////////////////////////////////
 /// By: Stephan "Bamboy" Ennen ////
@@ -21,10 +23,11 @@ public enum SoundType
 	Voice  // Volume is determined by the voice volume * master volume
 }
 
+[System.Serializable][ShowOdinSerializedPropertiesInInspector]
 public class AudioHelper : MonoBehaviour 
 {
 	#region Global Access
-	private new static AudioHelper audio;
+	private new static AudioHelper audio = null;
 	public static AudioHelper Get() //This makes it so we can remotely access this script from anywhere in the scene.
 	{
 		if( !audio ) //Check if we already have an instance of this script in the scene, if so just return it.
@@ -123,6 +126,22 @@ public class AudioHelper : MonoBehaviour
 	{
 		if( clip != null )
 		{
+			Debug.Log(Get().activeAudios[type].Count);
+			if( type == SoundType.Effect && Get().activeAudios[type].Count >= effectLimit )
+			{
+				Debug.Log("Skip");
+				return null;
+			}
+			else if( type == SoundType.Effect && Get().activeAudios[type].Count >= musicLimit )
+			{
+				return null;
+				Debug.Log("Skip");
+			}
+
+			
+
+
+
 			GameObject obj = new GameObject("AudioClip (Temp)");
 			obj.transform.position = pos;
 			obj.transform.parent = parent;
@@ -148,6 +167,7 @@ public class AudioHelper : MonoBehaviour
 
 			audio.Play ();
 			GameObject.Destroy( obj, clip.length ); //Destroy the object after the sound is done playing.
+
 
 			return audio;
 		}
@@ -189,20 +209,44 @@ public class AudioHelper : MonoBehaviour
 	#endregion
 
 
+	void LateUpdate()
+	{
+		Dictionary<SoundType,List<AudioSource>> newThing = new Dictionary<SoundType, List<AudioSource>>();
+		foreach (KeyValuePair<SoundType, List<AudioSource>> pair in activeAudios) 
+		{
+			List<AudioSource> copy = pair.Value;
+
+			newThing.Add(pair.Key, copy.Where(x => x != null).ToList());
+
+			//pair.Value = pair.Value.Where(x => x != null).ToList();
+		}
+
+		activeAudios = newThing;
+	}
+
+	public Dictionary<SoundType, List<AudioSource>> activeAudios = new Dictionary<SoundType, List<AudioSource>>();
 
 
-	public Dictionary<string, List<AudioSource>> activeAudios = new Dictionary<string, List<AudioSource>>();
+	public const int effectLimit = 5;
+	public const int musicLimit = 1;
 
 
-
-
-
-	public Dictionary<string, int> audioLimits = new Dictionary<string, int>();
+	//public Dictionary<SoundType, int> audioLimits = new Dictionary<SoundType, int>();
 
 
 	void Awake()
 	{
-		audioLimits.Add("Speech", 5);
+		activeAudios = new Dictionary<SoundType, List<AudioSource>>();
+		activeAudios.Add( SoundType.Effect, new List<AudioSource>() );
+		activeAudios.Add( SoundType.Music, new List<AudioSource>() );
+		activeAudios.Add( SoundType.None, new List<AudioSource>() );
+		activeAudios.Add( SoundType.Voice, new List<AudioSource>() );
+		//audioLimits.Add("Speech", 5);
+
+		AudioHelper.MasterVolume = 1f;
+		AudioHelper.EffectVolume = 1f;
+		AudioHelper.VoiceVolume = 1f;
+		AudioHelper.MusicVolume = 1f;
 	}
 
 
