@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 400004}
   - component: {fileID: 19800000}
   - component: {fileID: 19900000}
+  - component: {fileID: 114025020361530472}
+  - component: {fileID: 114877469603679286}
   m_Layer: 0
   m_Name: Explosion 1
   m_TagString: Untagged
@@ -3778,6 +3780,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Mesh: {fileID: 0}
+--- !u!114 &114025020361530472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b126ab4b7802f5b449f322ccb1a63e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go:
+  - {fileID: 1500702769168166, guid: c14993d21d1075e4eb8cfa215025bdda, type: 2}
 --- !u!114 &114383218876267602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3794,3 +3809,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   hardEdge: 0
+--- !u!114 &114877469603679286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e110938f940840479406c5efcf5515c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
