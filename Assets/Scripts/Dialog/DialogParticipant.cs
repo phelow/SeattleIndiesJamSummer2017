@@ -9,6 +9,9 @@ public class DialogParticipant : MonoBehaviour
 
 	public bool inConversation{ get{ return conversation != null; } }
 
+	public AudioClip conversationJoin;
+	public AudioClip collisionAudio;
+
 	//public bool isTalking{ get{ return conversation.
 
 	void OnCollisionEnter2D(Collision2D col)
