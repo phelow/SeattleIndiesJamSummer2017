@@ -37,12 +37,12 @@ public class ObjectUI : MonoBehaviour
 		float max = bounds[3].x - padding;
 
 
-		Debug.Log( min );
-		Debug.Log( max );
+	//	Debug.Log( min );
+	//	Debug.Log( max );
 
 		float x = Mathf.Clamp( Camera.main.WorldToScreenPoint( owner.talking.transform.position ).x, min, max );
 
-		Debug.Log( x );
+//		Debug.Log( x );
 
 		speechTriangle.transform.position = new Vector3( x, bounds[0].y + triangleHeightOffset, 0f );
 

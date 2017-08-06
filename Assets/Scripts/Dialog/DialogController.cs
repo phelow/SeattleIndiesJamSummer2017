@@ -83,9 +83,11 @@ public class DialogController : MonoBehaviour
 
 				if( this.table < DialogDefs.singleton.tables.Count )
 				{
-					this.talking = participants[ UnityEngine.Random.Range(0, participants.Count) ];
+					this.talking = (table % 2 == 0) ? participants[0] : participants[1]; //participants[ UnityEngine.Random.Range(0, participants.Count) ];
 					this.display.StartDisplay( DialogDefs.singleton.SelectRandom(table).text );
 				}
+				else
+					Debug.Log("end");
 			};
 		}
 	}
@@ -98,7 +100,8 @@ public class DialogController : MonoBehaviour
 		table = 0;
 
 		display.onComplete = recursive;
-		this.talking = participants[ UnityEngine.Random.Range(0, participants.Count) ];
+		//this.talking = participants[ UnityEngine.Random.Range(0, participants.Count) ];
+		this.talking = participants[ 0 ];
 		display.StartDisplay( DialogDefs.singleton.SelectRandom(table).text );
 	}
 
