@@ -40,13 +40,16 @@ public class ObjectUI : MonoBehaviour
 	//	Debug.Log( min );
 	//	Debug.Log( max );
 
-        if(owner == null || owner.talking == null)
+        try
+        {
+            float x = Mathf.Clamp(Camera.main.WorldToScreenPoint(owner.talking.transform.position).x, min, max);
+
+        }
+        catch
         {
             Destroy(this.gameObject);
+
         }
-
-		float x = Mathf.Clamp( Camera.main.WorldToScreenPoint( owner.talking.transform.position ).x, min, max );
-
 //		Debug.Log( x );
 
 		speechTriangle.transform.position = new Vector3( x, bounds[0].y + triangleHeightOffset, 0f );
