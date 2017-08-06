@@ -17,11 +17,22 @@ class WinCondition: MonoBehaviour
 
     private List<BuildingSpawner> m_spawners;
 
+    [SerializeField]
+    private Camera _camera;
+
+    private float _completionRatio;
+
     void Start()
     {
         s_instance = this;
         m_spawners = FindObjectsOfType<BuildingSpawner>().ToList();
         m_spawners.Shuffle();
+        UpdateScore();
+    }
+
+    private void Update()
+    {
+        _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, Mathf.Lerp(5, 20, _completionRatio), Time.deltaTime);
     }
 
     public void NewPersonChained()
@@ -43,9 +54,11 @@ class WinCondition: MonoBehaviour
 
     public void UpdateScore()
     {
-        float toFlip =Mathf.Ceil( m_spawners.Count * (_numberOfPeople / (1.0f * _numberToWin)));
+        float completionRatio = (_numberOfPeople / (1.0f * _numberToWin));
+        float toFlip = Mathf.Ceil( m_spawners.Count * completionRatio);
+        _completionRatio = completionRatio;
 
-        foreach(BuildingSpawner spawner in m_spawners)
+        foreach (BuildingSpawner spawner in m_spawners)
         {
             if (toFlip > 0.0f)
             {
