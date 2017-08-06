@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 110abf2feffdb5d4b991d8be1809a869
+timeCreated: 1501989348
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Cubellan SC
+  fontNames:
+  - Cubellan SC
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
