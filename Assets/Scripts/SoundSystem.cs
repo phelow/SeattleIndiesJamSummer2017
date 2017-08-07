@@ -15,7 +15,7 @@ class SoundSystem: MonoBehaviour
     {
         AudioSource freeSoundSource = null;
         foreach (AudioSource source in audioSources) {
-            if (!source.isPlaying) {
+            if (source != null && !source.isPlaying) {
                 freeSoundSource = source;
             }
         }

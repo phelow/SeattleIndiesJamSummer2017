@@ -7,6 +7,7 @@ public class FervorBucket : MonoBehaviour {
 
     public Material humanMaterial;
     public new Renderer renderer;
+    public int mainMaterialIndex = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +20,9 @@ public class FervorBucket : MonoBehaviour {
     public void Convert()
     {
         m_converted = true;
-        renderer.material = humanMaterial;
+        Material[] materials = renderer.materials;
+        materials[mainMaterialIndex] = humanMaterial;
+        renderer.materials = materials;
     }
     
     public bool IsConverted()
