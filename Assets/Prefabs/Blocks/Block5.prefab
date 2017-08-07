@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4022083403618276}
-  - component: {fileID: 61886485706898656}
   - component: {fileID: 114835448013858288}
+  - component: {fileID: 58809133565970302}
   m_Layer: 10
   m_Name: Building
   m_TagString: Untagged
@@ -120,8 +120,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4024614585178688}
-  - component: {fileID: 61223761342672396}
   - component: {fileID: 114283190109134264}
+  - component: {fileID: 58199464592577204}
   m_Layer: 10
   m_Name: Building
   m_TagString: Untagged
@@ -810,8 +810,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1323465188711726}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!61 &61223761342672396
-BoxCollider2D:
+--- !u!58 &58199464592577204
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -823,20 +823,10 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 6}
-  m_EdgeRadius: 0
---- !u!61 &61886485706898656
-BoxCollider2D:
+  m_Radius: 3.5
+--- !u!58 &58809133565970302
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -848,18 +838,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 6}
-  m_EdgeRadius: 0
+  m_Radius: 3.5
 --- !u!114 &114197302287958228
 MonoBehaviour:
   m_ObjectHideFlags: 1
