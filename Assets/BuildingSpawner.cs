@@ -44,6 +44,8 @@ public class BuildingSpawner : MonoBehaviour
 
     IEnumerator SpawnUnit()
     {
+        yield return new WaitForSeconds(5.0f);
+
         while (true)
         {
             if (enemyCountInScene >= maxEnemyCount)
