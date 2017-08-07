@@ -10,7 +10,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: 08b9a0268cd7f0d459d6452689007538, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
   stringTagMap: {}
@@ -92,5 +92,5 @@ Material:
     - _Foam: {r: 0.1, g: 0.375, b: 0, a: 0}
     - _InvFadeParemeter: {r: 0.2, g: 0.39, b: 0.5, a: 1}
     - _MainColour: {r: 0, g: 0.5034485, b: 1, a: 1}
-    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 1, g: 0.3455882, b: 0.3455882, a: 1}
     - _SpecularColour: {r: 1, g: 1, b: 1, a: 1}
