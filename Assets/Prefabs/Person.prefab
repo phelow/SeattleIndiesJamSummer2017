@@ -1257,6 +1257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   go:
   - {fileID: 100004, guid: d19723ddbfb2d9040b190a54cd9066cb, type: 2}
+  offset: {x: 0, y: 0, z: -0.5}
 --- !u!114 &114710711749948770
 MonoBehaviour:
   m_ObjectHideFlags: 1

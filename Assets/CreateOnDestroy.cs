@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class CreateOnDestroy : MonoBehaviour {
     public GameObject[] go;
     private bool isQuitting;
+    public Vector3 offset;
 
     void OnApplicationQuit()
     {
@@ -21,7 +22,7 @@ public class CreateOnDestroy : MonoBehaviour {
 
         for (int i = 0; i < go.Length; i++)
         {
-            Instantiate(go[i], transform.position, transform.rotation, null);
+            Instantiate(go[i], transform.position + offset, transform.rotation, null);
         }
     }
 }
