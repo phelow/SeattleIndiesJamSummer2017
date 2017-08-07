@@ -96,7 +96,7 @@ MonoBehaviour:
   offset: {x: 0, y: 85, z: 0}
   padding: 42
   speechTriangle: {fileID: 224473712188573084}
-  triangleHeightOffset: -22
+  triangleHeightOffset: -15
 --- !u!114 &114466761727858250
 MonoBehaviour:
   m_ObjectHideFlags: 1

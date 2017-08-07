@@ -17,7 +17,7 @@ public class ObjectUI : MonoBehaviour
 	private RectTransform speechWindow;
 	public RectTransform speechTriangle;
 
-	public float triangleHeightOffset = 0f;
+	public float triangleHeightOffset = -10f;
 
 	void Awake()
 	{
