@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: IslandGround
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_Name: Water_ed
+  m_Shader: {fileID: 4800000, guid: 3e446b1905dbe694f9ecd449e5b3cf89, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -24,7 +24,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 0.2, y: 0.2}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
         m_Texture: {fileID: 0}
@@ -36,11 +36,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 0.3, y: 0.3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 152e961fd54663047840bb26d39d4f30, type: 3}
-        m_Scale: {x: 0.3, y: 0.3}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -55,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShoreTex:
-        m_Texture: {fileID: 2800000, guid: c9d733c7a05e32048ab51e8622f5247b, type: 3}
+        m_Texture: {fileID: 2800000, guid: e249431247b5f19418bf686123c6ebb2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -70,20 +70,25 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _RandomHeight: 0.5
+    - _RandomSpeed: 0.5
     - _Shininess: 10
-    - _SkyBoxReflection: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _WaveHeight: 0.7
+    - _WavePeriod: 50
+    - _WaveSpeed: 1
     - _ZWrite: 1
     - _isInnerAlphaBlendOrColor: 0
     m_Colors:
-    - _BaseColor: {r: 0.54, g: 0.95, b: 0.99, a: 0.5}
+    - _BaseColor: {r: 0.0968858, g: 0.38377553, b: 0.41176468, a: 0.5}
     - _BumpDirection: {r: 1, g: 1, b: -1, a: 1}
     - _BumpTiling: {r: 1, g: 1, b: -2, a: 3}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Foam: {r: 0.1, g: 0.375, b: 0, a: 0}
-    - _InvFadeParemeter: {r: 0.2, g: 0.39, b: 0.5, a: 1}
+    - _Foam: {r: 0.1, g: 0.2, b: 0, a: 0}
+    - _InnerColor: {r: 0.4852941, g: 0.4852941, b: 0.4852941, a: 1}
+    - _InvFadeParemeter: {r: 0.5, g: 0.39, b: 0.5, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}

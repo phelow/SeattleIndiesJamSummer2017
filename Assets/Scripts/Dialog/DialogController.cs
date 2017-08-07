@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(DisplayString), typeof(ObjectUI))]
-public class DialogController : MonoBehaviour 
+public class DialogController : MonoBehaviour
 {
     private const int maxDialogs = 5;
 	private const string prefabLocation = "Prefabs/UI/Conversation Window";

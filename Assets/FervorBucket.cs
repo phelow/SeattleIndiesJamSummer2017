@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class FervorBucket : MonoBehaviour {
     private bool m_converted = false;
+
+    public Material humanMaterial;
+    public new Renderer renderer;
+
 	// Use this for initialization
 	void Start () {
     }
@@ -15,6 +19,7 @@ public class FervorBucket : MonoBehaviour {
     public void Convert()
     {
         m_converted = true;
+        renderer.material = humanMaterial;
     }
     
     public bool IsConverted()
