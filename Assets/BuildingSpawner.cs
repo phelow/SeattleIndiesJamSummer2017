@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildingSpawner : MonoBehaviour
 {
     private static int enemyCountInScene = 0;
-    private static int maxEnemyCount = 200;
+    private static int maxEnemyCount = 250;
 
     private float _fervor = 0.0f;
     private float c_maxFervor = 100.0f;
@@ -51,6 +51,7 @@ public class BuildingSpawner : MonoBehaviour
             if (enemyCountInScene >= maxEnemyCount)
             {
                 yield return new WaitForSeconds(10.0f);
+                continue;
             }
 
             Vector3 spawnPoint = transform.position + new Vector3(6.0f, 0, 0);

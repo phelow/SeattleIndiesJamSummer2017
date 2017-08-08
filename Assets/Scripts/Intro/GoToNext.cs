@@ -10,6 +10,17 @@ public class GoToNext : MonoBehaviour {
     [SerializeField]
     UnityEngine.UI.Image _image;
 
+    [SerializeField]
+    UnityEngine.UI.Image _introSpaceField;
+
+    void Start()
+    {
+        if (_introSpaceField != null)
+        {
+            _introSpaceField.enabled = false;
+        }
+    }
+
     int i = 0;
     // Update is called once per frame
 	void Update () {
@@ -26,6 +37,14 @@ public class GoToNext : MonoBehaviour {
                 UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
             }
 
+            if (_introSpaceField != null && i > 2)
+            {
+                _introSpaceField.enabled = false;
+            }
+            else
+            {
+                _introSpaceField.enabled = true;
+            }
         }
 	}
 }
